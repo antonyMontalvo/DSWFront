@@ -42,10 +42,12 @@
         <!--Fin titulo y ver más-->
 
 
+        <!--*ngIf="proyecto.rating == 5", no olvidar añadir en el div debajo de <!-Card->,
+        esto para mostrar solo populares.-->
         <div class="row">
             <ng-container *ngFor="let proyecto of proyectos">
                 <!--Card-->
-                <div class="col-md-4 col-lg-3 mb-5 my-2">
+                <div class="col-md-4 col-lg-3 mb-5 my-2" >
                     <div class="card h-100"  style="width: 17rem;"> <!--style="width: 18rem;" para que quepa todo-->
                         <img class="card-img-top" src="{{proyecto.image_url}}"
                             alt="Card image cap">
