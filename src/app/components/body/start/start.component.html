@@ -1,20 +1,78 @@
 <div class="container">
 
+    <!--#1 card-->
+    <div class="card my-5">
 
-    <div class="row align-items-center my-5">
-        <div class="col-lg-7">
-            <img class="img-fluid rounded mb-4 mb-lg-0" src="http://placehold.it/900x400" alt="">
+        <!--Liston rojo-->
+        <div class="ribbon-wrapper">
+            <div class="ribbon-front">
+                Proyecto del día
+            </div>
+            <div class="ribbon-edge-topleft"></div>
+            <div class="ribbon-edge-topright"></div>
+            <div class="ribbon-edge-bottomleft"></div>
+            <div class="ribbon-edge-bottomright"></div>
+            <div class="ribbon-back-left"></div>
+            <div class="ribbon-back-right"></div>
+        </div>
+        <!--Fin liston-->
+
+        <div class="row align-items-center my-5">
+
+            <!--Imagen izq-->
+            <div class="col-lg-7">
+                <img class="img-fluid rounded mb-4 mb-lg-0 ml-5" src="./assets/img/day1.png" alt="">
+            </div>
+
+            <!--Card desc-->
+            <div class="col-lg-4">
+                <h4 class="display-8"><a href="project.html">I'm making a Potato salad</a></h4>
+                <p class="text-muted">By <strong><a href="/project" class="text-muted">Otto Payne</a></strong> in
+                    <strong>London, UK</strong></p>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse vulputate et odio eu tempus.
+                    Donec turpis justo.Suspendisse vulputate et odio eu tempus. Suspendisse vulputate et odio eu
+                    tempus. </p>
+
+                <br />
+                <div class="progress">
+                    <div class="progress-bar" role="progressbar" style="width: 20%" aria-valuenow="20" aria-valuemin="0"
+                        aria-valuemax="100"></div>
+                </div>
+                <p>20% funded</p>
+            </div>
+            <!--Fin desc-->
+
         </div>
 
-
-        <div class="col-lg-5">
-            <h1 class="font-weight-light">Business Name or Tagline</h1>
-            <p>This is a template that is great for small businesses. It doesn't have too much fancy flare to it, but it
-                makes a great use of the standard Bootstrap core components. Feel free to use this template for any
-                project you want!</p>
-            <a class="btn btn-primary" href="#">Call to Action!</a>
+        <!--Card Footer-->
+        <div class="card-footer text-muted mt-4" style="background: #f7f8fa">
+            <div class="row ">
+                <div class="col-sm-12">
+                    <div class="row ">
+                        <div class="col">
+                            <p class="mt-0 mb-0">Pledged</p>
+                            <h5 class="mt-0 mb-0">$50,000</h5>
+                        </div>
+                        <div class="col">
+                            <p class="mt-0 mb-0">Backers</p>
+                            <h5 class="mt-0 mb-0">250</h5>
+                        </div>
+                        <div class="col">
+                            <p class="mt-0 mb-0">Days Left</p>
+                            <h5 class="mt-0 mb-0">27</h5>
+                        </div>
+                        <div class="col">
+                            <p class="mt-0 mb-0">Funding goal</p>
+                            <h5 class="mt-0 mb-0">$175,000</h5>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
+        <!--Fin footer-->
+
     </div>
+    <!--Fin #1 card-->
 
     <div class="card text-white bg-secondary my-5 py-4 text-center">
         <div class="card-body">
@@ -47,13 +105,14 @@
         <div class="row">
             <ng-container *ngFor="let proyecto of proyectos">
                 <!--Card-->
-                <div class="col-md-4 col-lg-3 mb-5 my-2" >
-                    <div class="card h-100"  style="width: 17rem;"> <!--style="width: 18rem;" para que quepa todo-->
-                        <img class="card-img-top" src="{{proyecto.image_url}}"
-                            alt="Card image cap">
+                <div class="col-md-4 col-lg-3 mb-5 my-2">
+                    <div class="card h-100" style="width: 17rem;">
+                        <!--style="width: 18rem;" para que quepa todo-->
+                        <img class="card-img-top" src="{{proyecto.image_url}}" alt="Card image cap">
                         <div class="card-body">
-                            <h6 class="card-title"><a href="#">{{proyecto.titulo}}</a></h6>
-                            <p class="text-muted">Por <strong><a href="#" class="text-muted">{{proyecto.autor}}</a></strong>
+                            <h6 class="card-title"><a routerLink="/project/{{proyecto.id}}">{{proyecto.titulo}}</a></h6>
+                            <p class="text-muted">Por <strong><a routerLink="/project/{{proyecto.id}}"
+                                        class="text-muted">{{proyecto.autor}}</a></strong>
                             </p>
                             <p class="card-text">{{proyecto.short_desc}}</p>
                             <div class="progress">
@@ -93,6 +152,76 @@
 </div>
 <!--Fin espacio-->
 
+<!--Espacio: Añadidos rec-->
+<div class="mt-5">
+    <div class="container-fluid inner">
+
+        <!--Titulo de barra y btn ver más-->
+        <div class="row">
+            <div class="col-8">
+                <h3>Añadidos recientemente</h3>
+            </div>
+            <div class="text-right col-4">
+                <!--text-right para mandar a la derecha-->
+                <a href="#" class="btn btn-secondary">Ver más</a>
+            </div>
+        </div>
+        <!--Fin titulo y ver más-->
+
+
+        <!--*ngIf="proyecto.rating == 5", no olvidar añadir en el div debajo de <!-Card->,
+            esto para mostrar solo populares.-->
+        <div class="row">
+            <ng-container *ngFor="let proyecto of proyectos">
+                <!--Card-->
+                <div class="col-md-4 col-lg-3 mb-5 my-2">
+                    <div class="card h-100" style="width: 17rem;">
+                        <!--style="width: 18rem;" para que quepa todo-->
+                        <img class="card-img-top" src="{{proyecto.image_url}}" alt="Card image cap">
+                        <div class="card-body">
+                            <h6 class="card-title"><a routerLink="/project/{{proyecto.id}}">{{proyecto.titulo}}</a></h6>
+                            <p class="text-muted">Por <strong><a routerLink="/project/{{proyecto.id}}"
+                                        class="text-muted">{{proyecto.autor}}</a></strong>
+                            </p>
+                            <p class="card-text">{{proyecto.short_desc}}</p>
+                            <div class="progress">
+                                <div class="progress-bar" role="progressbar" style="width: 76%" aria-valuenow="76"
+                                    aria-valuemin="0" aria-valuemax="100"></div>
+                            </div>
+                            <p class="mb-1">76% patrocinado</p>
+                        </div>
+                        <div class="card-footer text-muted">
+                            <div class="row">
+                                <div class="col-12">
+                                </div>
+                                <div class="col-12">
+                                    <div class="row">
+                                        <div class="col-4 text-center">
+                                            <h6 class="mt-0 mb-0"><strong>{{proyecto.patrocinadores}}</strong></h6>
+                                            <p class="mt-0 mb-0">Dashers</p>
+                                        </div>
+                                        <div class="col-4 text-center">
+                                            <p class="mt-0 mb-0">Meta</p>
+                                            <h6 class="mt-0 mb-0"><strong>${{proyecto.meta}}</strong></h6>
+                                        </div>
+                                        <div class="col-4 text-center">
+                                            <h6 class="mt-0 mb-0"><strong>{{proyecto.days_left}}</strong></h6>
+                                            <p class="mt-0 mb-0">Días&nbsp;más</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--Fin Card-->
+            </ng-container>
+        </div>
+    </div>
+</div>
+<!--Fin espacio-->
+
+
 <!--Extras-->
 <div class=" light-blue  mt-5 pt-5 pb-5">
     <div class="container-fluid">
@@ -108,22 +237,26 @@
                 <div class="row mt-3">
 
                     <div class="col-5  offset-1">
-                        <p>Access your data from absolutely anywhere and on any device your phone, ipad, laptop. Lorem
+                        <p>Access your data from absolutely anywhere and on any device your phone, ipad, laptop.
+                            Lorem
                             ipsum dolor sit amet, consectetur adipiscing elit.</p>
                     </div>
 
                     <div class="col-5  offset-1">
-                        <p>Create your own graphs and visualizztions to you can capture trends immediately. Donec nec
+                        <p>Create your own graphs and visualizztions to you can capture trends immediately. Donec
+                            nec
                             tortor lorem. Integer nulla quam, convallis ut consectetur vel, dignissim et ex.</p>
                     </div>
 
                     <div class="col-5  offset-1">
-                        <p>Ideal for shop owners selling over 100 products a day. We make sure you find our what your
+                        <p>Ideal for shop owners selling over 100 products a day. We make sure you find our what
+                            your
                             best products are, what products you could sell.</p>
                     </div>
 
                     <div class="col-5  offset-1">
-                        <p> Nam porttitor quam pellentesque, mollis arcu tincidunt, faucibus tellus. Fusce nec sem ut
+                        <p> Nam porttitor quam pellentesque, mollis arcu tincidunt, faucibus tellus. Fusce nec sem
+                            ut
                             risus auctor iaculis id a libero. </p>
                     </div>
 

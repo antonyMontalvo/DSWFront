@@ -9,13 +9,16 @@ import { AppComponent } from './app.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { StartComponent } from './components/body/start/start.component';
+import { ProjectServices } from './services/project/project.service';
+import { ProjectComponent } from './components/body/project/project.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavbarComponent,
     FooterComponent,
-    StartComponent
+    StartComponent,
+    ProjectComponent
   ],
   imports: [
     BrowserModule,
@@ -27,8 +30,10 @@ import { StartComponent } from './components/body/start/start.component';
       provide: HTTP_INTERCEPTORS,
       useClass: CustomHttpInterceptor,
       multi: true
-    }
+    },
+    ProjectServices
   ],
+  
   bootstrap: [AppComponent]
 })
 export class AppModule { }
