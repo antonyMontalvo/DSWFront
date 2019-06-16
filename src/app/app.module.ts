@@ -12,6 +12,9 @@ import { StartComponent } from './components/body/start/start.component';
 import { ProjectServices } from './services/project/project.service';
 import { ProjectComponent } from './components/body/project/project.component';
 import { PopupComponent } from './components/pop-up/popup.component';
+import { NewproComponent } from './components/body/newpro/newpro.component';
+import { SteponeComponent } from './components/body/newpro/stepone/stepone.component';
+
 
 @NgModule({
   declarations: [
@@ -20,7 +23,9 @@ import { PopupComponent } from './components/pop-up/popup.component';
     FooterComponent,
     StartComponent,
     ProjectComponent,
-    PopupComponent
+    PopupComponent,
+    NewproComponent,
+    SteponeComponent
   ],
   imports: [
     BrowserModule,
