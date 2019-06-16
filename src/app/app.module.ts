@@ -14,6 +14,10 @@ import { ProjectComponent } from './components/body/project/project.component';
 import { PopupComponent } from './components/pop-up/popup.component';
 import { NewproComponent } from './components/body/newpro/newpro.component';
 import { SteponeComponent } from './components/body/newpro/stepone/stepone.component';
+import { SteptwoComponent } from './components/body/newpro/steptwo/steptwo.component';
+import { StepthreeComponent } from './components/body/newpro/stepthree/stepthree.component';
+import { StepfourComponent } from './components/body/newpro/stepfour/stepfour.component';
+import { StepfiveComponent } from './components/body/newpro/stepfive/stepfive.component';
 
 
 @NgModule({
@@ -25,7 +29,11 @@ import { SteponeComponent } from './components/body/newpro/stepone/stepone.compo
     ProjectComponent,
     PopupComponent,
     NewproComponent,
-    SteponeComponent
+    SteponeComponent,
+    SteptwoComponent,
+    StepthreeComponent,
+    StepfourComponent,
+    StepfiveComponent
   ],
   imports: [
     BrowserModule,
