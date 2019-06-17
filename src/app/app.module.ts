@@ -18,6 +18,8 @@ import { SteptwoComponent } from './components/body/newpro/steptwo/steptwo.compo
 import { StepthreeComponent } from './components/body/newpro/stepthree/stepthree.component';
 import { StepfourComponent } from './components/body/newpro/stepfour/stepfour.component';
 import { StepfiveComponent } from './components/body/newpro/stepfive/stepfive.component';
+import { ProfileComponent } from './components/body/profile/profile.component';
+
 
 
 @NgModule({
@@ -33,7 +35,8 @@ import { StepfiveComponent } from './components/body/newpro/stepfive/stepfive.co
     SteptwoComponent,
     StepthreeComponent,
     StepfourComponent,
-    StepfiveComponent
+    StepfiveComponent,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,

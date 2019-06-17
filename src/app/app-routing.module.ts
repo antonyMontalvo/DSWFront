@@ -3,11 +3,13 @@ import { Routes, RouterModule } from '@angular/router';
 import { StartComponent } from './components/body/start/start.component';
 import { ProjectComponent } from './components/body/project/project.component';
 import { NewproComponent } from './components/body/newpro/newpro.component';
+import { ProfileComponent } from './components/body/profile/profile.component';
 
 const routes: Routes = [
     {path: '', component: StartComponent},
     {path: 'project/:id', component: ProjectComponent},
-    {path: 'start_project', component: NewproComponent}
+    {path: 'start_project', component: NewproComponent},
+    {path: 'profile', component: ProfileComponent}  
 ];
 
 
