@@ -1,0 +1,228 @@
+<div class="container-fluid">
+    <div class="row">
+
+        <div class="col-sm-12 my-5">
+
+            <h1>Configuración</h1><br><br>
+
+            <ul class="nav nav-tabs" id="myTab" role="tablist">
+                <li class="nav-item">
+                    <a class="nav-link active" id="perfil-tab" data-toggle="tab" href="#perfil" role="tab"
+                        aria-controls="perfil" aria-selected="true">Mi perfil</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" id="cuenta-tab" data-toggle="tab" href="#cuenta" role="tab"
+                        aria-controls="cuenta" aria-selected="false">Cuenta</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" id="metodopago-tab" data-toggle="tab" href="#metodopago" role="tab"
+                        aria-controls="metodopago" aria-selected="false">Métodos de pago</a>
+                </li>
+            </ul>
+
+            <div class="tab-content" id="myTabContent">
+                <div class="tab-pane fade show active" id="perfil" role="tabpanel" aria-labelledby="perfil-tab">
+
+                    <form class=" my-5">
+                        <fieldset>
+
+                            <div class="row">
+                                <div class="col-sm-5 ">
+                                    <div class="form-group row">
+                                        <label for="example-text-input"
+                                            class="col-3 col-md-2 col-form-label">Nombre</label>
+                                        <div class="col-9 col-md-10">
+                                            <input class="form-control" type="text" placeholder="firstname@example.com"
+                                                id="example-text-input">
+                                            <p class="form-text text-muted">
+                                                Tu nombre es mostrado en tu perfil.
+                                            </p>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group row">
+                                        <label for="example-email-input" class="col-3 col-md-2 col-form-label">Foto de
+                                            perfil</label>
+                                        <div class="col-9 col-md-10">
+                                            <p class="form-control-static">
+                                            </p>
+                                            <div style="border: 1px dashed #000; width: 100%; display: block; height: 100px; line-height: 100px"
+                                                class="text-center">
+                                                Escoge una imagen desde tu computadora.
+                                            </div>
+                                            <p></p>
+                                            <p class="form-text text-muted">
+                                                JPEG o PNG • Limite de imagen: 5MB
+                                            </p>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group row">
+                                        <label for="example-email-input"
+                                            class="col-3 col-md-2 col-form-label">Biografía</label>
+                                        <div class="col-9 col-md-10">
+                                            <textarea class="form-control" id="exampleTextarea" rows="5"></textarea>
+                                            <p class="form-text text-muted">
+                                                Te sugerimos una biografía corta. Si está tiene 300 caracteres o menos
+                                                se verá
+                                                genial en tu perfil.
+                                            </p>
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                                <div class="col-sm-5 offset-sm-1 float-md-right">
+                                    <div class="form-group row">
+                                        <label for="example-search-input"
+                                            class="col-3 col-md-2 col-form-label">Ubicación</label>
+                                        <div class="col-9 col-md-10">
+                                            <input class="form-control" type="search" placeholder="Lima, Perú"
+                                                id="example-search-input">
+                                            <p class="form-text text-muted">
+                                                Ingresa la ciudad y el país donde vives.
+                                            </p>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group row">
+                                        <label for="example-tel-input" class="col-3 col-md-2 col-form-label">Sitio
+                                            web</label>
+                                        <div class="col-9 col-md-10">
+                                            <input class="form-control" type="text" value=""
+                                                placeholder="http://example.com">
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                            <hr>
+                            <button type="submit" class="btn btn-primary">Guardar cambios</button>
+                            <button type="button" class="btn btn-link" routerLink="/profile">Ver perfil</button>
+                        </fieldset>
+                    </form>
+
+                </div>
+
+                <!--Contenido cuenta-->
+                <div class="tab-pane fade" id="cuenta" role="tabpanel" aria-labelledby="cuenta-tab">
+                    <form class="my-5">
+                        <fieldset>
+
+                            <div class="row">
+                                <div class="col-sm-6 col-lg-5 ">
+                                    <div class="form-group row">
+                                        <label for="example-text-input"
+                                            class="col-3 col-md-2 col-form-label">Email</label>
+                                        <div class="col-9 col-md-10">
+                                            <input class="form-control" type="email" placeholder="firstname@example.com"
+                                                id="example-text-input">
+                                            <p class="form-text text-muted">
+                                                Email que usarás para acceder.
+                                            </p>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group row">
+                                        <label for="example-text-input"
+                                            class="col-3 col-md-2 col-form-label">Contraseña</label>
+                                        <div class="col-9 col-md-10">
+                                            <input class="form-control" type="password" value=""
+                                                id="example-text-input">
+                                            <p class="form-text text-muted">
+                                                Tiene que tener más de 8 caracteres.
+                                            </p>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group row">
+                                        <label for="example-text-input" class="col-3 col-md-2 col-form-label">Contraseña
+                                            actual</label>
+                                        <div class="col-9 col-md-10">
+                                            <input class="form-control" type="password" value=""
+                                                id="example-text-input">
+                                            <p class="form-text text-muted">
+                                                Ingresa tu contraseña actual para guardar los cambios.
+                                            </p>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group row">
+                                        <div class="col-9 col-md-10">
+                                            <button type="submit" class="btn btn-primary">Guardar cambios</button>
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                                <!--Barra derecha-->
+                                <div class="col-sm-3 offset-sm-3 float-md-right">
+                                    <h6>Configuración de cuenta</h6>
+                                    <hr>
+                                    <p>Configura tu cuenta para añadir más seguridad, cambiar el método
+                                        de pago a usar, contraseñas y otros.
+                                    </p>
+                                </div>
+                                <!--Fin barra derecha-->
+                            </div>
+                            <hr>
+
+                        </fieldset>
+                    </form>
+                </div>
+                <!--Fin contenido cuenta-->
+
+                <!--Metodo de pago-->
+                <div class="tab-pane fade" id="metodopago" role="tabpanel" aria-labelledby="metodopago-tab">
+                    <h3 class="my-4">Opciones de pago</h3>
+
+                    <div class="row">
+                        <div class="col-sm-8">
+                            <p>El método de pago que guardaste en StartDash se mostrará aquí de forma segura. Para
+                                añadir una tarjeta nueva para contribuciones futuras, simplemente ingresa la información de tu
+                                tarjeta y haz clic en "Guardar".</p>
+                        </div>
+                        <div class="col-sm-4 text-center">
+                            <a href="" class="btn btn-primary">Añadir un nuevo método</a>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-sm-8">
+                            <table class="table mt-5">
+                                <thead class="thead-inverse">
+                                    <tr>
+                                        <th>#</th>
+                                        <th>Número de tarjeta</th>
+                                        <th>Expira</th>
+                                        <th>Tipo</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <th scope="row">1</th>
+                                        <td>XXXX-XXXX-XXXX-2315</td>
+                                        <td>08-27</td>
+                                        <td>MasterCard</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                </div>
+
+
+            </div>
+
+        </div>
+        <!--Fin metodo de pago-->
+    </div>
+
+</div>
+
+<!--<h4 class="my-4">Opciones de pago</h4>
+                    <p>El método de pago que guardaste en StartDash se mostrará aquí de forma segura. Para añadir
+                        una tarjeta nueva para contribuciones futuras, simplemente ingresa la información de tu tarjeta
+                        y haz clic en "Guardar".</p>
+                    <hr>-->

@@ -19,6 +19,8 @@ import { StepthreeComponent } from './components/body/newpro/stepthree/stepthree
 import { StepfourComponent } from './components/body/newpro/stepfour/stepfour.component';
 import { StepfiveComponent } from './components/body/newpro/stepfive/stepfive.component';
 import { ProfileComponent } from './components/body/profile/profile.component';
+import { ProfileconComponent } from './components/body/profilecon/profilecon.component';
+
 
 
 
@@ -36,7 +38,8 @@ import { ProfileComponent } from './components/body/profile/profile.component';
     StepthreeComponent,
     StepfourComponent,
     StepfiveComponent,
-    ProfileComponent
+    ProfileComponent,
+    ProfileconComponent
   ],
   imports: [
     BrowserModule,
