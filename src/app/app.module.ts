@@ -4,6 +4,7 @@ import { Config } from "./services/config";
 import { HTTP_INTERCEPTORS } from "@angular/common/http";
 import { CustomHttpInterceptor } from "./services/custom-http-interceptor";
 import { AppRoutingModule } from './app-routing.module';
+import { FormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
@@ -20,6 +21,8 @@ import { StepfourComponent } from './components/body/newpro/stepfour/stepfour.co
 import { StepfiveComponent } from './components/body/newpro/stepfive/stepfive.component';
 import { ProfileComponent } from './components/body/profile/profile.component';
 import { ProfileconComponent } from './components/body/profilecon/profilecon.component';
+import { AboutComponent } from './components/body/about/about.component';
+import { CategoryComponent } from './components/body/category/category.component';
 
 
 
@@ -39,11 +42,14 @@ import { ProfileconComponent } from './components/body/profilecon/profilecon.com
     StepfourComponent,
     StepfiveComponent,
     ProfileComponent,
-    ProfileconComponent
+    ProfileconComponent,
+    AboutComponent,
+    CategoryComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule
   ],
   providers: [
     Config,

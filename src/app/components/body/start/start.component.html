@@ -103,7 +103,8 @@
         <!--*ngIf="proyecto.rating == 5", no olvidar añadir en el div debajo de <!-Card->,
         esto para mostrar solo populares.-->
         <div class="row">
-            <ng-container *ngFor="let proyecto of proyectos">
+            <!--Slice:0:4 y let i index para que solo se muestren los 4 primeros xD-->
+            <ng-container *ngFor="let proyecto of proyectos | slice:0:4; let i=index" >
                 <!--Card-->
                 <div class="col-md-4 col-lg-3 mb-5 my-2">
                     <div class="card h-100" style="width: 17rem;">
@@ -172,7 +173,7 @@
         <!--*ngIf="proyecto.rating == 5", no olvidar añadir en el div debajo de <!-Card->,
             esto para mostrar solo populares.-->
         <div class="row">
-            <ng-container *ngFor="let proyecto of proyectos">
+            <ng-container *ngFor="let proyecto of proyectos  | slice:0:4; let i=index">
                 <!--Card-->
                 <div class="col-md-4 col-lg-3 mb-5 my-2">
                     <div class="card h-100" style="width: 17rem;">

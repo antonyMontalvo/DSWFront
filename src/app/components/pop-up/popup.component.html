@@ -7,7 +7,7 @@
             <div class="modal-body">
 
                 <div class="row">
-
+                   
                     <div class="col-sm-12">
                         <div class="row">
                             <div class="col-sm-12  pull-right">
@@ -16,43 +16,35 @@
                                         class="icon-close icons" aria-hidden="true"
                                         style="color: #fff; font-size: 26px"></i></a>
                                 <div class="card mt-3" style="background: #fff; padding: 10px">
+                                    
+                                    <!--validacion-->
+                                    {{isError}}
                                     <h6 style="color: #000;font-weight: 100;">¿Posees una cuenta?</h6>
                                     <p>Logueate para continuar.</p><br />
-                                    <form>
-                                        <div class="form-group row">
-                                            <div class="col-sm-12">
-                                                <input type="email" class="form-control" id="inputEmail3"
-                                                    placeholder="Email">
-                                            </div>
+
+                                    <div class="alert alert-danger" role="alert" *ngIf="isError">
+
+                                        Algo anda mal.
+                                    </div>
+
+                                    <form #formLogin="ngForm" (ngSubmit)="onLogin(formLogin)">
+                                        <div class="form-group">
+                                            <input type="email" id="email" name="email" class="form-control" placeholder="Email"
+                                            pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" [(ngModel)]="user.email" required>
                                         </div>
-                                        <div class="form-group row">
-                                            <div class="col-sm-12">
-                                                <input type="password" class="form-control" id="inputPassword3"
-                                                    placeholder="Contraseña">
-                                            </div>
+
+                                        <div class="form-group">
+                                            <input type="password" id="password" name="password" class="form-control" placeholder="Contraseña"
+                                            [(ngModel)]="user.password" required>
                                         </div>
-                                        <div class="form-group row">
-                                            <label class="col-sm-2"></label>
-                                            <div class="col-sm-10">
-                                                <div class="form-check">
-                                                    <label class="form-check-label">
-                                                        <input class="form-check-input" type="checkbox">Recuerdame
-                                                    </label>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <br /><br />
-                                        <div class="form-group row">
-                                            <div class="offset-sm-3 col-sm-6 text-center">
-                                                <a href="account-dashboard.html" class="btn btn-primary btn-block">Ingresar</a>
-                                            </div>
-                                        </div>
-                                        <div class="form-group row">
-                                            <div class="offset-sm-2 col-sm-8 text-center">
-                                                <a href="" class="mt-2">¿Olvidaste tu contraseña?</a>
-                                            </div>
-                                        </div>
+                                        <button type="submit" class="btn btn-lg btn-primary btn-block my-2">Login</button>
+
+                                        
+                                        <div class="text-center"><a href="" class="mt-2">¿Olvidaste tu contraseña?</a></div>
+                                        
                                     </form>
+
+                                    <!--fin validacion-->
                                 </div>
                             </div>
                         </div>
@@ -122,7 +114,7 @@
                                             <br /><br />
                                             <p>Al presionar el botón "Crear cuenta", aceptas nuestros términos y condiciones.
                                             </p>
-                                            <a href="account-dashboard.html" class="btn btn-primary">Crear cuenta</a><br /><br />
+                                            <a href="/config" class="btn btn-primary">Crear cuenta</a><br /><br />
                                         </div>
                                     </form>
 

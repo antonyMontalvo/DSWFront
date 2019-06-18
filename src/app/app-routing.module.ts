@@ -5,6 +5,8 @@ import { ProjectComponent } from './components/body/project/project.component';
 import { NewproComponent } from './components/body/newpro/newpro.component';
 import { ProfileComponent } from './components/body/profile/profile.component';
 import { ProfileconComponent } from './components/body/profilecon/profilecon.component';
+import { AboutComponent } from './components/body/about/about.component';
+import { CategoryComponent } from './components/body/category/category.component';
 
 
 const routes: Routes = [
@@ -12,7 +14,9 @@ const routes: Routes = [
     {path: 'project/:id', component: ProjectComponent},
     {path: 'start_project', component: NewproComponent},
     {path: 'profile', component: ProfileComponent},
-    {path: 'config', component: ProfileconComponent}
+    {path: 'config', component: ProfileconComponent},
+    {path: 'about', component: AboutComponent},
+    {path: 'category', component: CategoryComponent}
 ];
 
 

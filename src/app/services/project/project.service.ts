@@ -27,6 +27,18 @@ export class ProjectServices {
         patrocinadores: '51', din_actual: '8592', meta: '20,000', days_left: '100', image_url:'./assets/img/test4.png', rating: '',
         categoria: 'Teatro'
         },
+        {id: 5, titulo: 'Proyecto 5', autor: 'Antony Montalvo', short_desc:'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rem magni quas ex numquam, maxime minus quam molestias corporis quod, ea minima accusamus.',
+        patrocinadores: '90', din_actual: '40,540', meta: '90,000', days_left: '45', image_url:'./assets/img/test2.png', rating: '',
+        categoria: 'Tecnología'
+        },
+        {id: 6, titulo: 'Proyecto 6', autor: 'Bryan Flores', short_desc:'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rem magni quas ex numquam, maxime minus quam molestias corporis quod, ea minima accusamus.',
+        patrocinadores: '78', din_actual: '39,990' , meta: '45,000', days_left: '17', image_url:'./assets/img/test3.png', rating: '',
+        categoria: 'Arte'
+        },
+        {id: 7, titulo: 'Proyecto 7', autor: 'Erick Loardo', short_desc:'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rem magni quas ex numquam, maxime minus quam molestias corporis quod, ea minima accusamus.',
+        patrocinadores: '51', din_actual: '8592', meta: '20,000', days_left: '100', image_url:'./assets/img/test4.png', rating: '',
+        categoria: 'Teatro'
+        },
     ];
 
     getProjects(){
