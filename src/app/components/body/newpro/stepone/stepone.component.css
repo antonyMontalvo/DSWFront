@@ -1,0 +1,8 @@
+.file-config{
+    cursor: pointer;
+    color: cornflowerblue;
+}
+
+.file-config:hover{
+    color: aqua;
+}

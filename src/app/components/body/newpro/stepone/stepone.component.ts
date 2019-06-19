@@ -2,7 +2,8 @@ import { Component } from '@angular/core';
 
 @Component({
     selector: 'app-stepone',
-    templateUrl: './stepone.component.html'
+    templateUrl: './stepone.component.html',
+    styleUrls: ['./stepone.component.css']
 })
 
 export class SteponeComponent {
