@@ -1,0 +1,64 @@
+<!--Login pop-up-->
+<div class="modal fade login-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content" style="background: transparent; border: none;">
+
+            <div class="modal-body">
+
+                <div class="row">
+
+                    <div class="col-sm-12">
+                        <div class="row">
+                            <div class="col-sm-12  pull-right">
+                                <h4 style="color: #fff; font-weight: 100;">Login</h4>
+                                <a href="#" data-dismiss="modal" style="position: absolute; top: 0; right: 0;"><i
+                                        class="icon-close icons" aria-hidden="true"
+                                        style="color: #fff; font-size: 26px"></i></a>
+                                <div class="card mt-3" style="background: #fff; padding: 10px">
+
+                                    <!--validacion-->
+                                    {{isError}}
+                                    <h6 style="color: #000;font-weight: 100;">¿Posees una cuenta?</h6>
+                                    <p>Logueate para continuar.</p><br />
+
+                                    <div class="alert alert-danger" role="alert" *ngIf="isError">
+                                        Revisa los datos antes de ingresar!
+                                    </div>
+
+                                    <div class="alert alert-danger" role="alert" *ngIf="isErrorData">
+                                        Usuario o password incorrecto / no existente.
+                                    </div>
+
+                                    <form #formLogin="ngForm" (ngSubmit)="onLogin(formLogin)">
+
+                                        <div class="form-group">
+                                            <input type="email" id="email" name="email" class="form-control"
+                                                placeholder="Email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$"
+                                                [(ngModel)]="user.email" required>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <input type="password" id="password" name="password" class="form-control"
+                                                placeholder="Contraseña" [(ngModel)]="user.password" required>
+                                        </div>
+                                        <button type="submit"
+                                            class="btn btn-lg btn-primary btn-block my-2">Login</button>
+
+                                        <div class="text-center"><a href="" class="mt-2">¿Olvidaste tu contraseña?</a>
+                                        </div>
+
+                                    </form>
+
+                                    <!--fin validacion-->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--Fin login pop-up-->

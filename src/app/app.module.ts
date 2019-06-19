@@ -12,7 +12,6 @@ import { FooterComponent } from './components/footer/footer.component';
 import { StartComponent } from './components/body/start/start.component';
 import { ProjectServices } from './services/project/project.service';
 import { ProjectComponent } from './components/body/project/project.component';
-import { PopupComponent } from './components/pop-up/popup.component';
 import { NewproComponent } from './components/body/newpro/newpro.component';
 import { SteponeComponent } from './components/body/newpro/stepone/stepone.component';
 import { SteptwoComponent } from './components/body/newpro/steptwo/steptwo.component';
@@ -23,6 +22,8 @@ import { ProfileComponent } from './components/body/profile/profile.component';
 import { ProfileconComponent } from './components/body/profilecon/profilecon.component';
 import { AboutComponent } from './components/body/about/about.component';
 import { CategoryComponent } from './components/body/category/category.component';
+import { LoginComponent } from './components/pop-up/login/login.component';
+import { RegisterComponent } from './components/pop-up/register/register.component';
 
 
 
@@ -34,7 +35,6 @@ import { CategoryComponent } from './components/body/category/category.component
     FooterComponent,
     StartComponent,
     ProjectComponent,
-    PopupComponent,
     NewproComponent,
     SteponeComponent,
     SteptwoComponent,
@@ -44,7 +44,9 @@ import { CategoryComponent } from './components/body/category/category.component
     ProfileComponent,
     ProfileconComponent,
     AboutComponent,
-    CategoryComponent
+    CategoryComponent,
+    LoginComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,

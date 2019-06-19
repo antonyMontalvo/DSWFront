@@ -1,0 +1,111 @@
+<!--Register pop-up-->
+<div class="modal fade signup-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content" style="background: transparent; border: none;">
+
+            <div class="modal-body">
+
+                <div class="row">
+
+                    <div class="col-sm-12">
+                        <div class="row">
+                            <div class="col-md-11 col-sm-12">
+                                <h4 style="color: #fff; font-weight: 100;">Registrarse</h4>
+                                <a href="#" data-dismiss="modal" style="position: absolute; top: 0; right: 0;"><i
+                                        class="icon-close icons" aria-hidden="true"
+                                        style="color: #fff; font-size: 26px"></i></a>
+
+                                <div class="card  mt-3" style="background: #fff; padding: 10px">
+                                    <h6 style="color: #000">¿Nuevo en StartDash?</h6>
+                                    <p>Necesitas crear una cuenta para acceder a nuestros servicios.</p>
+
+                                    <form #formRegister="ngForm" (ngSubmit)="onRegister(formRegister)">
+
+                                        <!--Formulario vacío o dato erroneo-->
+                                        <div class="alert alert-danger" role="alert" *ngIf="isError">
+                                            Datos incorrectos o faltan llenar espacios.
+                                        </div>
+
+                                        <!--Email ya registrado en la db-->
+                                        <div class="alert alert-danger" role="alert" *ngIf="isEmailError">
+                                            Email ya existe.
+                                        </div>
+
+                                        <!--Validacion email-->
+                                        <div class="form-group">
+                                            <input type="email" #email2="ngModel" name="email" class="form-control"
+                                                placeholder="Email" [(ngModel)]="registered.email"
+                                                pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" required>
+                                        </div>
+
+                                        <div class="alert alert-danger" role="alert"
+                                            *ngIf="email2.touched && !email2.valid">
+                                            <div *ngIf="email2.errors.required">El campo email es obligatorio.</div>
+                                            <div *ngIf="!email2.valid">Ingresa un email correcto.</div>
+                                        </div>
+                                        <!--Fin email-->
+
+
+                                        <!-- pattern="[a-zA-Z\s]" para que acepte solo letras mayus, minus y espacio -->
+                                        <!--Validacion nombre-->
+                                        <div class="form-group">
+                                            <input type="text" #firstname="ngModel" name="firstname"
+                                                class="form-control" placeholder="Nombres"
+                                                [(ngModel)]="registered.firstname" pattern="[a-zA-Z\s]+" required>
+                                        </div>
+
+                                        <div class="alert alert-danger" role="alert"
+                                            *ngIf="firstname.touched && !firstname.valid">
+                                            <div *ngIf="firstname.errors.required">El campo nombre es obligatorio.</div>
+                                            <div *ngIf="!firstname.valid">Ingresa un nombre correcto.</div>
+                                        </div>
+                                        <!--Fin validacion nombre-->
+
+                                        <!--Validacion apellido-->
+                                        <div class="form-group">
+                                            <input type="text" #lastname="ngModel" name="lastname" class="form-control"
+                                                placeholder="Apellidos" [(ngModel)]="registered.lastname"
+                                                pattern="[a-zA-Z\s]+" required>
+                                        </div>
+
+                                        <div class="alert alert-danger" role="alert"
+                                            *ngIf="lastname.touched && !lastname.valid">
+                                            <div *ngIf="lastname.errors.required">El campo apellido es obligatorio.</div>
+                                            <div *ngIf="!lastname.valid">Ingresa un nombre correcto.</div>
+                                        </div>
+                                        <!--Fin validacion apellido-->
+
+                                        <!--Contraseña min max longitud-->
+                                        <div class="form-group">
+                                            <input type="password" #password2="ngModel" name="password" class="form-control"
+                                                placeholder="Contraseña" [(ngModel)]="registered.password" required
+                                                minlength="5" maxlength="20">
+                                        </div>
+
+                                        <div class="alert alert-danger" role="alert"
+                                            *ngIf="password2.touched && !password2.valid">
+                                            <div *ngIf="password2.errors.required">El campo contraseña es obligatorio.</div>
+                                            <div *ngIf="password2.errors.minlength">La contraseña debe tener como mínimo 5 caracteres.</div>
+                                        </div>
+                                        <!--Fin min max contraseña-->
+
+                                        <div class="text-center">
+                                            <br /><br />
+                                            <p>Al presionar el botón "Crear cuenta", aceptas nuestros términos y
+                                                condiciones.</p>
+                                        </div>
+
+                                        <button type="submit" class="btn btn-lg btn-primary btn-block">Registrar</button>
+
+                                    </form>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
