@@ -34,15 +34,15 @@
 
                                         <!--Validacion email-->
                                         <div class="form-group">
-                                            <input type="email" #email2="ngModel" name="email" class="form-control"
-                                                placeholder="Email" [(ngModel)]="registered.email"
-                                                pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" required>
+                                            <input type="email" #userEmail="ngModel" name="userEmail" class="form-control"
+                                                placeholder="Email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$"
+                                                ngModel required>
                                         </div>
 
                                         <div class="alert alert-danger" role="alert"
-                                            *ngIf="email2.touched && !email2.valid">
-                                            <div *ngIf="email2.errors.required">El campo email es obligatorio.</div>
-                                            <div *ngIf="!email2.valid">Ingresa un email correcto.</div>
+                                            *ngIf="userEmail.touched && !userEmail.valid">
+                                            <div *ngIf="userEmail.errors.required">El campo email es obligatorio.</div>
+                                            <div *ngIf="!userEmail.valid">Ingresa un email correcto.</div>
                                         </div>
                                         <!--Fin email-->
 
@@ -50,43 +50,52 @@
                                         <!-- pattern="[a-zA-Z\s]" para que acepte solo letras mayus, minus y espacio -->
                                         <!--Validacion nombre-->
                                         <div class="form-group">
-                                            <input type="text" #firstname="ngModel" name="firstname"
-                                                class="form-control" placeholder="Nombres"
-                                                [(ngModel)]="registered.firstname" pattern="[a-zA-Z\s]+" required>
+                                            <input type="text" #userFirstName="ngModel" name="userFirstName"
+                                                class="form-control" placeholder="Nombres" pattern="[a-zA-Z\s]+" ngModel required>
                                         </div>
 
                                         <div class="alert alert-danger" role="alert"
-                                            *ngIf="firstname.touched && !firstname.valid">
-                                            <div *ngIf="firstname.errors.required">El campo nombre es obligatorio.</div>
-                                            <div *ngIf="!firstname.valid">Ingresa un nombre correcto.</div>
+                                            *ngIf="userFirstName.touched && !userFirstName.valid">
+                                            <div *ngIf="userFirstName.errors.required">El campo nombre es obligatorio.</div>
+                                            <div *ngIf="!userFirstName.valid">Ingresa un nombre correcto.</div>
                                         </div>
                                         <!--Fin validacion nombre-->
 
                                         <!--Validacion apellido-->
                                         <div class="form-group">
-                                            <input type="text" #lastname="ngModel" name="lastname" class="form-control"
-                                                placeholder="Apellidos" [(ngModel)]="registered.lastname"
-                                                pattern="[a-zA-Z\s]+" required>
+                                            <input type="text" #userLastName="ngModel" name="userLastName" class="form-control"
+                                                placeholder="Apellido paterno" pattern="[a-zA-Z\s]+" ngModel required>
                                         </div>
 
                                         <div class="alert alert-danger" role="alert"
-                                            *ngIf="lastname.touched && !lastname.valid">
-                                            <div *ngIf="lastname.errors.required">El campo apellido es obligatorio.</div>
-                                            <div *ngIf="!lastname.valid">Ingresa un nombre correcto.</div>
+                                            *ngIf="userLastName.touched && !userLastName.valid">
+                                            <div *ngIf="userLastName.errors.required">El campo apellido paterno es obligatorio.</div>
+                                            <div *ngIf="!userLastName.valid">Ingresa un apellido paterno correcto.</div>
                                         </div>
                                         <!--Fin validacion apellido-->
 
+                                        <div class="form-group">
+                                            <input type="text" #userSurName="ngModel" name="userSurName" class="form-control"
+                                                placeholder="Apellido materno" pattern="[a-zA-Z\s]+" ngModel required>
+                                        </div>
+    
+                                        <div class="alert alert-danger" role="alert"
+                                                *ngIf="userSurName.touched && !userSurName.valid">
+                                            <div *ngIf="userSurName.errors.required">El campo apellido materno es obligatorio.</div>
+                                            <div *ngIf="!userSurName.valid">Ingresa un apellido materno correcto.</div>
+                                        </div>
+
                                         <!--Contraseña min max longitud-->
                                         <div class="form-group">
-                                            <input type="password" #password2="ngModel" name="password" class="form-control"
-                                                placeholder="Contraseña" [(ngModel)]="registered.password" required
+                                            <input type="password" #userPassword="ngModel" name="userPassword" class="form-control"
+                                                placeholder="Contraseña" ngModel required
                                                 minlength="5" maxlength="20">
                                         </div>
 
                                         <div class="alert alert-danger" role="alert"
-                                            *ngIf="password2.touched && !password2.valid">
-                                            <div *ngIf="password2.errors.required">El campo contraseña es obligatorio.</div>
-                                            <div *ngIf="password2.errors.minlength">La contraseña debe tener como mínimo 5 caracteres.</div>
+                                            *ngIf="userPassword.touched && !userPassword.valid">
+                                            <div *ngIf="userPassword.errors.required">El campo contraseña es obligatorio.</div>
+                                            <div *ngIf="userPassword.errors.minlength">La contraseña debe tener como mínimo 5 caracteres.</div>
                                         </div>
                                         <!--Fin min max contraseña-->
 
@@ -96,7 +105,7 @@
                                                 condiciones.</p>
                                         </div>
 
-                                        <button type="submit" class="btn btn-lg btn-primary btn-block">Registrar</button>
+                                        <button type="submit" class="btn btn-lg btn-primary btn-block" >Registrar</button>
 
                                     </form>
 

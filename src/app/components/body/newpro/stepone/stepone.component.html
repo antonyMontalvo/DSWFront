@@ -32,67 +32,43 @@
 
         <!--Titulo-->
         <div class="form-group light-blue">
-            <label for="exampleInputEmail1">Título del proyecto</label>
-            <input type="email" class="form-control form-control-lg" id="exampleInputEmail1"
-                aria-describedby="emailHelp" placeholder="Titulo">
+            <label for="projectTitle">Título del proyecto</label>
+            <input type="text" #projectTitle="ngModel" name="projectTitle" 
+            class="form-control form-control-lg" placeholder="Titulo" pattern="[a-zA-Z0-9\s]+" ngModel>
             <p class="form-text text-muted">
                 Escribe un título claro y conciso que ayude a las personas a comprender rápidamente la esencia de tu
                 proyecto.
             </p>
         </div>
+        
+        <div class="alert alert-danger" role="alert" *ngIf="projectTitle.touched && !projectTitle.valid">
+            <div *ngIf="!projectTitle.valid">No se permiten caracteres especiales como /, -, $, !, etc.</div>
+        </div>
+
+        
         <!--Fin titulo-->
 
         <!--Descripción corta-->
         <div class="form-group light-blue">
-            <label for="exampleInputEmail1">Descripción corta</label>
-            <textarea class="form-control form-control-lg" rows="3"></textarea>
-            <p id="passwordHelpBlock" class="form-text text-muted">
+            <label for="projectSdesc">Descripción corta</label>
+            <textarea #projectSdesc="ngModel" name="projectSdesc" class="form-control form-control-lg" 
+                rows="3" pattern="[a-zA-Z0-9\s]+" ngModel></textarea>
+            <p id="projectSdesc" class="form-text text-muted">
                 Ofrece una pequeña descripción de lo que estás haciendo.
             </p>
+        </div>
+
+        <div class="alert alert-danger" role="alert" *ngIf="projectSdesc.touched && !projectSdesc.valid">
+                <div *ngIf="!projectSdesc.valid">No se permiten caracteres especiales como /, -, $, !, etc.</div>
         </div>
         <!--Fin descripcion corta-->
 
         <!--Categoria y sub-->
         <div class="form-group light-blue">
-            <label for="exampleInputEmail1">Categoría</label>
+            <label for="categorySelectBox">Categoría</label>
             <div class="row">
                 <div class="col-6">
-                    <select class="form-control custom-select">
-
-                        <option value="1">Arte</option>
-
-                        <option value="1">Comics</option>
-
-                        <option value="1">Hazlo tu mismo</option>
-
-                        <option value="1">Baile</option>
-
-                        <option value="1">Diseño</option>
-
-                        <option value="1">Moda</option>
-
-                        <option value="1">Peliculas &amp; Video</option>
-
-                        <option value="1">Comida</option>
-
-                        <option value="1">Juegos</option>
-
-                        <option value="1">Periodismo</option>
-
-                        <option value="1">Musica</option>
-
-                        <option value="1">Fotografía</option>
-
-                        <option value="1">Publicaciones</option>
-
-                        <option value="1">Tecnología</option>
-
-                        <option value="1">Teatro</option>
-
-                    </select>
-                </div>
-                <div class="col-6">
-                    <select class="form-control custom-select">
+                    <select name="category" id="categorySelectBox" class="form-control custom-select" ngModel>
 
                         <option value="1">Arte</option>
 
@@ -132,38 +108,55 @@
 
         <!--Pais de proyecto-->
         <div class="form-group light-blue">
-            <label for="exampleInputEmail1">Ubicación del proyecto</label>
+            <label for="projectUbication">Ubicación del proyecto</label>
             <div class="input-group  input-group-lg">
-                <input type="text" class="form-control" placeholder="Empieza a escribir tu ubicación...">
+                <input type="text" #projectUbication="ngModel" name="projectUbication" class="form-control"
+                    placeholder="Empieza a escribir tu ubicación..." pattern="[a-zA-Z\s,]+" ngModel>
+            </div>
+        </div>
+
+        <div class="alert alert-danger" role="alert" *ngIf="projectUbication.touched && !projectUbication.valid">
+            <div *ngIf="!projectUbication.valid">No se permiten caracteres especiales como /, -, $, !, etc. ,
+                ni números.
             </div>
         </div>
         <!--Fin pais-->
 
         <!--Duracion-->
         <div class="form-group light-blue">
-            <label for="exampleInputEmail1">Duración de la campaña</label>
+            <label for="projectDuration">Duración de la campaña</label>
             <div class="input-group">
-                <input type="text" class="form-control form-control-lg" placeholder="" aria-describedby="basic-addon2">
-                <span class="input-group-addon" id="basic-addon2">días</span>
+                <input type="text" #projectDuration="ngModel" name="projectDuration" class="form-control form-control-lg"
+                    placeholder="" pattern="[0-9]+" ngModel>
+                <span class="input-group-addon" id="projectDuration">días</span>
             </div>
-            <p id="passwordHelpBlock" class="form-text text-muted">
+            <p id="projectDuration" class="form-text text-muted">
                 Define un límite de tiempo para tu campaña. No podrás cambiarlo después de la publicación.
             </p>
+        </div>
+
+        <div class="alert alert-danger" role="alert" *ngIf="projectDuration.touched && !projectDuration.valid">
+            <div *ngIf="!projectDuration.valid">Sólo se permite el ingreso de números, no letras ni espacios.
+            </div>
         </div>
         <!--Fin duracion-->
 
         <!--Meta-->
         <div class="form-group light-blue">
-            <label for="exampleInputEmail1">Meta</label>
+            <label for="projectGoal">Meta</label>
             <div class="input-group  col-4 pl-0">
-                <input type="text" class="form-control form-control-lg" placeholder="" value="0"
-                    aria-describedby="basic-addon2">
-                <span class="input-group-addon" id="basic-addon2">$</span>
+                <input type="text" #projectGoal="ngModel" name="projectGoal" class="form-control form-control-lg" placeholder=""
+                    value="0" pattern="[0-9]+" ngModel>
+                <span class="input-group-addon" id="projectGoal">$</span>
             </div>
-            <p id="passwordHelpBlock" class="form-text text-muted">
+            <p id="projectGoal" class="form-text text-muted">
                 Define una meta alcanzable que cubra lo que necesitas para completar tu proyecto.
                 El financiamiento es todo o nada. Si no cumples tu meta, no recibirás ninguna contribución.
             </p>
+        </div>
+
+        <div class="alert alert-danger" role="alert" *ngIf="projectGoal.touched && !projectGoal.valid">
+            <div *ngIf="!projectGoal.valid">Sólo se permite el ingreso de números, no letras ni espacios.</div>
         </div>
         <!--Fin meta-->
 

@@ -1,14 +1,38 @@
-import {Component} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {NgForm} from '@angular/forms';
-
+import { Router } from '@angular/router';
+import { AuthService } from 'src/app/services/auth/auth.service';
 
 @Component({
     selector: 'app-register',
     templateUrl: './register.component.html'
 })
 
-export class RegisterComponent {
+export class RegisterComponent implements OnInit {
+    
+    constructor(private authService: AuthService, private router:Router){
 
+    }
+
+    ngOnInit() {
+        
+    }
+
+    onRegister(form): void{
+
+        if(form.valid){
+            this.authService.register(form.value).subscribe(res =>{
+                this.router.navigateByUrl('/');
+
+            });
+        } else {
+            console.log('No valido.');
+        }
+
+        
+    }
+
+    /*
     pruebita: any = {email: 'asd@hotmail.com'}
     registered: any = {};
     public isError = false;
@@ -39,6 +63,6 @@ export class RegisterComponent {
             this.isError = false;
         }, 4000);
     }
-
+    */
 
 }

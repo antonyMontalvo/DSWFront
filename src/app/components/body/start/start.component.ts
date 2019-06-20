@@ -12,7 +12,7 @@ export class StartComponent {
 
    constructor(private projectServices: ProjectServices){
         this.proyectos = this.projectServices.getProjects();
-        console.log(this.proyectos);
+        //console.log(this.proyectos);
    }
 
 

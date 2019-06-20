@@ -5,6 +5,7 @@ import { HTTP_INTERCEPTORS } from "@angular/common/http";
 import { CustomHttpInterceptor } from "./services/custom-http-interceptor";
 import { AppRoutingModule } from './app-routing.module';
 import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
@@ -22,8 +23,9 @@ import { ProfileComponent } from './components/body/profile/profile.component';
 import { ProfileconComponent } from './components/body/profilecon/profilecon.component';
 import { AboutComponent } from './components/body/about/about.component';
 import { CategoryComponent } from './components/body/category/category.component';
-import { LoginComponent } from './components/pop-up/login/login.component';
-import { RegisterComponent } from './components/pop-up/register/register.component';
+import { LoginComponent } from './components/auth/login/login.component';
+import { RegisterComponent } from './components/auth/register/register.component';
+import { AuthService } from './services/auth/auth.service';
 
 
 
@@ -51,7 +53,8 @@ import { RegisterComponent } from './components/pop-up/register/register.compone
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
   providers: [
     Config,
@@ -60,7 +63,8 @@ import { RegisterComponent } from './components/pop-up/register/register.compone
       useClass: CustomHttpInterceptor,
       multi: true
     },
-    ProjectServices
+    ProjectServices,
+    AuthService
   ],
   
   bootstrap: [AppComponent]

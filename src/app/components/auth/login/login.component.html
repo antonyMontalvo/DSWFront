@@ -26,21 +26,21 @@
                                         Revisa los datos antes de ingresar!
                                     </div>
 
-                                    <div class="alert alert-danger" role="alert" *ngIf="isErrorData">
+                                    <div class="alert alert-danger" role="alert" *ngIf="isWrongData">
                                         Usuario o password incorrecto / no existente.
                                     </div>
 
                                     <form #formLogin="ngForm" (ngSubmit)="onLogin(formLogin)">
 
                                         <div class="form-group">
-                                            <input type="email" id="email" name="email" class="form-control"
+                                            <input type="email" id="email" name="userEmail" class="form-control"
                                                 placeholder="Email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$"
-                                                [(ngModel)]="user.email" required>
+                                                ngModel required>
                                         </div>
 
                                         <div class="form-group">
-                                            <input type="password" id="password" name="password" class="form-control"
-                                                placeholder="Contraseña" [(ngModel)]="user.password" required>
+                                            <input type="password" id="password" name="userPassword" class="form-control"
+                                                placeholder="Contraseña" ngModel required>
                                         </div>
                                         <button type="submit"
                                             class="btn btn-lg btn-primary btn-block my-2">Login</button>
