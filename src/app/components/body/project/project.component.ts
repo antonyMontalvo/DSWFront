@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { ProjectServices } from 'src/app/services/project/project.service';
+import { ProjectServices } from 'src/app/services/createproject/project.service';
 import { ActivatedRoute } from '@angular/router';
 
 @Component({

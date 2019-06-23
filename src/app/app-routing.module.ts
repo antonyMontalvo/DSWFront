@@ -4,7 +4,7 @@ import { StartComponent } from './components/body/start/start.component';
 import { ProjectComponent } from './components/body/project/project.component';
 import { NewproComponent } from './components/body/newpro/newpro.component';
 import { ProfileComponent } from './components/body/profile/profile.component';
-import { ProfileconComponent } from './components/body/profilecon/profilecon.component';
+import { ProfileconComponent } from './components/body/profileconfig/profileconfig.component';
 import { AboutComponent } from './components/body/about/about.component';
 import { CategoryComponent } from './components/body/category/category.component';
 import { BefproComponent } from './components/body/befpro/befpro.component';

@@ -2,8 +2,8 @@ import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { HttpClient, HttpHeaders} from '@angular/common/http';
 import { Router } from '@angular/router';
-import { ProjectI } from 'src/app/models/project/project';
-import { JwtResponseProject } from 'src/app/models/project/jwt-response-project';
+import { ProjectI } from 'src/app/models/createproject/project';
+import { JwtResponseProject } from 'src/app/models/createproject/jwt-response-project';
 import { tap } from 'rxjs/operators';
 
 @Injectable()

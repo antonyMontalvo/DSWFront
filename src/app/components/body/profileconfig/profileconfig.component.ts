@@ -1,8 +1,8 @@
 import {Component} from '@angular/core';
 
 @Component({
-    selector: 'app-profilecon',
-    templateUrl: './profilecon.component.html'
+    selector: 'app-profileconfig',
+    templateUrl: './profileconfig.component.html'
 })
 
 export class ProfileconComponent {

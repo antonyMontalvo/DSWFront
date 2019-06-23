@@ -11,7 +11,7 @@ import { AppComponent } from './app.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { StartComponent } from './components/body/start/start.component';
-import { ProjectServices } from './services/project/project.service';
+import { ProjectServices } from './services/createproject/project.service';
 import { ProjectComponent } from './components/body/project/project.component';
 import { NewproComponent } from './components/body/newpro/newpro.component';
 import { SteponeComponent } from './components/body/newpro/stepone/stepone.component';
@@ -20,14 +20,15 @@ import { StepthreeComponent } from './components/body/newpro/stepthree/stepthree
 import { StepfourComponent } from './components/body/newpro/stepfour/stepfour.component';
 import { StepfiveComponent } from './components/body/newpro/stepfive/stepfive.component';
 import { ProfileComponent } from './components/body/profile/profile.component';
-import { ProfileconComponent } from './components/body/profilecon/profilecon.component';
+import { ProfileconComponent } from './components/body/profileconfig/profileconfig.component';
 import { AboutComponent } from './components/body/about/about.component';
 import { CategoryComponent } from './components/body/category/category.component';
 import { LoginComponent } from './components/auth/login/login.component';
 import { RegisterComponent } from './components/auth/register/register.component';
 import { AuthService } from './services/auth/auth.service';
 import { BefproComponent } from './components/body/befpro/befpro.component';
-import { BeforeprojectServices } from './services/project/beforeproject.service';
+import { BeforeprojectServices } from './services/createproject/beforeproject.service';
+import { UserprofileServices } from './services/userprofile/userprofile.service';
 
 
 
@@ -68,7 +69,8 @@ import { BeforeprojectServices } from './services/project/beforeproject.service'
     },
     ProjectServices,
     AuthService,
-    BeforeprojectServices
+    BeforeprojectServices,
+    UserprofileServices
   ],
   
   bootstrap: [AppComponent]

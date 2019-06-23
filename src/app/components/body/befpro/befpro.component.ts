@@ -1,6 +1,6 @@
 import {Component} from '@angular/core';
 import { Router } from '@angular/router';
-import { BeforeprojectServices } from 'src/app/services/project/beforeproject.service';
+import { BeforeprojectServices } from 'src/app/services/createproject/beforeproject.service';
 
 @Component({
     selector: 'app-befpro',

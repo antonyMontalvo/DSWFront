@@ -26,7 +26,11 @@
                 </li>
                 <li class="list-group-item d-flex justify-content-between align-items-center">
                     Creado
-                    <span class="badge badge-primary badge-pill">2</span>
+                    
+                <span class="badge badge-primary badge-pill">{{user_projects.length}}</span>
+                    
+                    
+                    
                 </li>
             </ul>
 
@@ -60,7 +64,7 @@
                 <!--Tab acerca de-->
                 <div class="tab-pane fade show active" id="pills-acercade" role="tabpanel"
                     aria-labelledby="pills-acercade-tab">
-                    <h5 class="mb-3 text-center">Patrocinó 14 proyectos · Lima, Perú · Participa desde abr 2011</h5>
+                    <h5 class="mb-3 text-center">Patrocinó {{user_projects.length}} proyectos · Lima, Perú · Participa desde abr 2011</h5>
                     <div class="row">
                         <div class="col-md-6">
                             <h6>Biografía</h6>
@@ -120,24 +124,28 @@
 
                 <!--Tab creados-->
                 <div class="tab-pane fade" id="pills-creado" role="tabpanel" aria-labelledby="pills-creado-tab">
+                    
+                    <!--Usando la data de los proyectos (user_projects) de usuario según token. -->
+                    <ng-container *ngFor ="let proyecto of user_projects">
+                    
                     <!--Card proyectos creados-->
                     <div class="card flex-md-row mb-4 shadow-sm h-md-250">
                         <img class="card-img-right flex-auto d-none d-lg-block" src="//placehold.it/200"
                             alt="Card image cap">
                         <div class="card-body d-flex flex-column align-items-start">
-                            <strong class="d-inline-block mb-2 text-success">Categoría</strong>
+                            <strong class="d-inline-block mb-2 text-success">{{proyecto.category}}</strong>
                             <h3 class="mb-0">
-                                <a class="text-dark" href="#">Titulo proyecto</a>
+                                <a class="text-dark" routerLink="/project/{{proyecto._id}}">{{proyecto.title}}</a>
                             </h3>
 
-                            <p class="card-text mb-auto my-2">This is a wider card with supporting text below as a
-                                natural
-                                lead-in to additional content.</p>
-                            <small class="text-muted">Patrocinado el </small>
+                            <p class="card-text mb-auto my-2">{{proyecto.short_desc}}</p>
+                            <small class="text-muted">Iniciado el {{proyecto.start_date}}</small>
                         </div>
                         <!--Si la pones acá, se pone a la izquierda jaja-->
                     </div>
                     <!--Fin proyectos creados-->
+                    </ng-container>
+
                 </div>
                 <!--Fin creados-->
 

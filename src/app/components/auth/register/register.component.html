@@ -20,7 +20,7 @@
                                     <h6 style="color: #000">¿Nuevo en StartDash?</h6>
                                     <p>Necesitas crear una cuenta para acceder a nuestros servicios.</p>
 
-                                    <form #formRegister="ngForm" (ngSubmit)="onRegister(formRegister)">
+                                    <form #formRegister="ngForm"><!--(ngSubmit)="onRegister(formRegister)", dentro del <form-->
 
                                         <!--Formulario vacío o dato erroneo-->
                                         <div class="alert alert-danger" role="alert" *ngIf="isError">
@@ -105,7 +105,9 @@
                                                 condiciones.</p>
                                         </div>
 
-                                        <button type="submit" class="btn btn-lg btn-primary btn-block" >Registrar</button>
+                                        <button type="button" (click)='onRegister(formRegister)' data-dismiss="modal"
+                                            class="btn btn-lg btn-primary btn-block my-2">Registrarse</button>
+                                        <!--<button type="submit" class="btn btn-lg btn-primary btn-block" >Registrar</button>-->
 
                                     </form>
 
