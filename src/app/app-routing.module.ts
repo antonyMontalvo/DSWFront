@@ -7,16 +7,18 @@ import { ProfileComponent } from './components/body/profile/profile.component';
 import { ProfileconComponent } from './components/body/profilecon/profilecon.component';
 import { AboutComponent } from './components/body/about/about.component';
 import { CategoryComponent } from './components/body/category/category.component';
+import { BefproComponent } from './components/body/befpro/befpro.component';
 
 
 const routes: Routes = [
     {path: '', component: StartComponent},
     {path: 'project/:id', component: ProjectComponent},
     {path: 'start_project', component: NewproComponent},
-    {path: 'profile', component: ProfileComponent},
+    {path: 'profile/:token', component: ProfileComponent},
     {path: 'config', component: ProfileconComponent},
     {path: 'about', component: AboutComponent},
-    {path: 'category', component: CategoryComponent}
+    {path: 'category', component: CategoryComponent},
+    {path: 'step_one', component: BefproComponent}
 ];
 
 

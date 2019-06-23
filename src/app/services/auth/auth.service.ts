@@ -17,6 +17,8 @@ export class AuthService {
     authSubject = new BehaviorSubject(false);
     private token: string;
     public isloggedin: boolean; // Booleano para ver si hay o no token en el localStorage.
+    userData: any = {}; // Arreglo para guardar los datos del localStorage y usarlos en el profile.
+    
 
     // Valores de lista para almacenar datos de navbar (usuario)
     private currentUserNameStore = new BehaviorSubject<string>("");
@@ -102,7 +104,7 @@ export class AuthService {
 
     }
 
-    private getToken(): string {
+    public getToken(): string {
         if (!this.token) {
             this.token = localStorage.getItem("ACCESS_TOKEN");
         }
@@ -160,9 +162,18 @@ export class AuthService {
     }
 
 
+    public getDataUser(){
 
+        this.userData = { 
+            firstName: localStorage.getItem("FIRST_NAME"), 
+            lastName: localStorage.getItem("LAST_NAME"),
+            email: localStorage.getItem("EMAIL"),
+            biography: 'Test biography.'
+        }
 
+        return this.userData;
 
+    }
 
 
 }

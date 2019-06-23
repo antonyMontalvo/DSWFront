@@ -29,7 +29,7 @@
         <li class="nav-item">
           <!--Si hay un token, entonces esto cambia-->
           <a class="nav-link" href="#" data-toggle="modal" data-target=".login-modal-lg" *ngIf="!authService.isloggedin">Login</a>
-          <a class="nav-link" href="#" data-toggle="modal" *ngIf="authService.isloggedin">{{usuario}}</a>
+          <a class="nav-link" routerLink="/profile/{{authService.getToken()}}" data-toggle="modal" *ngIf="authService.isloggedin">{{usuario}}</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="#" data-toggle="modal" data-target=".signup-modal-lg" *ngIf="!authService.isloggedin">Registrate</a>

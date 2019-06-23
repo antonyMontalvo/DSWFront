@@ -1,7 +1,7 @@
 <div class="container inner my-4">
     <div class="row">
         <div class="col-sm-12">
-            <h1>Usuario</h1>
+            <h1>{{user_data.firstName + " " + user_data.lastName}}</h1>
             <hr>
         </div>
     </div>
@@ -65,12 +65,14 @@
                         <div class="col-md-6">
                             <h6>Biografía</h6>
                             <p>
-                                Founder of Glass Bottom Games, making SkateBIRD. Previous games include: Spartan Fist,
-                                Hot Tin Roof, Jones On Fire, and LEGO Universe.
+                                {{user_data.biography}}
+                                <!--Founder of Glass Bottom Games, making SkateBIRD. Previous games include: Spartan Fist,
+                                Hot Tin Roof, Jones On Fire, and LEGO Universe.-->
                             </p>
                             <h6>Sitio web</h6>
                             <p>
-                                <a href="">www.mysite.com</a>
+                                {{user_data.email}}
+                                <!--<a href="">www.mysite.com</a>-->
                             </p>
                         </div>
                         <div class="col-md-6">

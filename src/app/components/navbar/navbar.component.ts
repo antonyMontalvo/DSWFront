@@ -11,6 +11,7 @@ export class NavbarComponent {
     
     private tokenIn: Boolean;
     usuario: any;
+    
 
     constructor(private authService: AuthService, private router: Router){
 

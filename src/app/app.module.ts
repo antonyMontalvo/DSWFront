@@ -26,6 +26,8 @@ import { CategoryComponent } from './components/body/category/category.component
 import { LoginComponent } from './components/auth/login/login.component';
 import { RegisterComponent } from './components/auth/register/register.component';
 import { AuthService } from './services/auth/auth.service';
+import { BefproComponent } from './components/body/befpro/befpro.component';
+import { BeforeprojectServices } from './services/project/beforeproject.service';
 
 
 
@@ -48,7 +50,8 @@ import { AuthService } from './services/auth/auth.service';
     AboutComponent,
     CategoryComponent,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    BefproComponent
   ],
   imports: [
     BrowserModule,
@@ -64,7 +67,8 @@ import { AuthService } from './services/auth/auth.service';
       multi: true
     },
     ProjectServices,
-    AuthService
+    AuthService,
+    BeforeprojectServices
   ],
   
   bootstrap: [AppComponent]
