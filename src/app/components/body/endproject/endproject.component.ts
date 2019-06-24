@@ -3,21 +3,25 @@ import { AuthService } from 'src/app/services/auth/auth.service';
 import { Router } from '@angular/router';
 
 @Component({
-    selector: 'app-newpro',
-    templateUrl: './newpro.component.html'
+    selector: 'app-endproject',
+    templateUrl: './endproject.component.html'
 })
 
-export class NewproComponent {
+export class EndprojectComponent {
     
     private tokenIn: Boolean;
 
     constructor(private authService: AuthService, private router: Router){
+        
         this.tokenIn = authService.verifyTokenPage();
-        if(this.tokenIn){
 
+        if(this.tokenIn){
+            //No hace nada si es true
         }else{
+            //Te redirige al inicio.
             this.router.navigateByUrl('/');
         }
+        
     }
 
 }

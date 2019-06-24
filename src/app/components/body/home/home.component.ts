@@ -2,11 +2,11 @@ import {Component} from '@angular/core';
 import { ProjectServices } from 'src/app/services/createproject/project.service';
 
 @Component({
-    selector: 'app-start',
-    templateUrl: './start.component.html'
+    selector: 'app-home',
+    templateUrl: './home.component.html'
 })
 
-export class StartComponent {
+export class HomeComponent {
     
    proyectos: any = [];
 

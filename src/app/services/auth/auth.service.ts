@@ -4,7 +4,6 @@ import { tap } from 'rxjs/operators';
 import { Observable, BehaviorSubject } from 'rxjs';
 import { UserI } from 'src/app/models/user';
 import { JwtResponseI } from 'src/app/models/jwt-response';
-
 import { Router } from '@angular/router';
 import { UserRegisterI } from 'src/app/models/user-register';
 
@@ -18,7 +17,7 @@ export class AuthService {
     private token: string;
     public isloggedin: boolean; // Booleano para ver si hay o no token en el localStorage.
     userData: any = {}; // Arreglo para guardar los datos del localStorage y usarlos en el profile.
-    
+
 
     // Valores de lista para almacenar datos de navbar (usuario)
     private currentUserNameStore = new BehaviorSubject<string>("");
@@ -34,6 +33,8 @@ export class AuthService {
     }
 
 
+    /* Login */
+
     login(user: UserI): Observable<JwtResponseI> {
         return this.httpClient.post<JwtResponseI>(`${this.AUTH_SERVER}/signin`,
             user).pipe(tap(
@@ -41,7 +42,7 @@ export class AuthService {
                     console.log(res);
                     console.log(res.message.token);
 
-                    if(res.status == '200'){
+                    if (res.status == '200') {
                         //guardar token
                         this.saveToken(res.message.token);
                         this.saveUserData(res.message.userName, res.message.userEmail, res.message.userFirstName,
@@ -51,22 +52,11 @@ export class AuthService {
                         this.setCurrentUserName(localStorage.getItem("FIRST_NAME") + " " + localStorage.getItem("LAST_NAME"));
                         this.isloggedin = true;
 
-                    } else{
+                    } else {
                         console.log(res.status);
                         this.isloggedin = false;
                     }
-                    
-                    /*
-                    if (res) {
-                        //guardar token
-                        this.saveToken(res.message.token);
-                        this.saveUserData(res.message.userName, res.message.userEmail, res.message.userFirstName,
-                            res.message.userLastName, res.message.userSurName, res.message.userPhoto);
-                        /* this.setCurrentUserName(localStorage.getItem("FIRST_NAME")) se coloca
-                        acá para que la data (username) se vea apenas te loguees 
-                        this.setCurrentUserName(localStorage.getItem("FIRST_NAME") + " " + localStorage.getItem("LAST_NAME"));
-                        this.isloggedin = true;
-                    }*/
+
                 })
             );
     }
@@ -80,10 +70,6 @@ export class AuthService {
         localStorage.clear(); // Borra token y todos los datos guardados en local.
         this.isloggedin = false;
         this.router.navigate(['/']); //Para que te bote de la página al inicio.
-    }
-
-    private saveStatus(status:string): void {
-        localStorage.setItem("STATUS", status);
     }
 
     private saveToken(token: string): void {
@@ -138,9 +124,9 @@ export class AuthService {
             return true;
         }
     }
-    /* ----------------------- */
+   
 
-    //Registro
+    /* Registro */ 
     register(user: UserRegisterI): Observable<JwtResponseI> {
         return this.httpClient.post<JwtResponseI>(`${this.AUTH_SERVER}/signup`,
             user).pipe(tap(
@@ -162,10 +148,10 @@ export class AuthService {
     }
 
 
-    public getDataUser(){
+    public getDataUser() {
 
-        this.userData = { 
-            firstName: localStorage.getItem("FIRST_NAME"), 
+        this.userData = {
+            firstName: localStorage.getItem("FIRST_NAME"),
             lastName: localStorage.getItem("LAST_NAME"),
             email: localStorage.getItem("EMAIL"),
             biography: 'Test biography.'

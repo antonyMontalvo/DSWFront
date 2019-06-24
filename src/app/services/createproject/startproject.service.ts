@@ -8,7 +8,7 @@ import { tap } from 'rxjs/operators';
 
 @Injectable()
 
-export class BeforeprojectServices {
+export class StartprojectServices {
 
     AUTH_SERVER: string = 'http://178.128.74.193/DSW-Back/api/v1';
     authSubject = new BehaviorSubject(false);
