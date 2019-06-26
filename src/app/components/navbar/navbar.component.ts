@@ -13,7 +13,7 @@ export class NavbarComponent {
     usuario: any;
     
 
-    constructor(private authService: AuthService, private router: Router){
+    constructor(public authService: AuthService, private router: Router){
 
         /* Se llama a la lista para mostrar el dato solicitado desde el servicio */
         this.authService.currentUserName$.subscribe(userName =>{

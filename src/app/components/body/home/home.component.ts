@@ -1,6 +1,6 @@
 import {Component} from '@angular/core';
 import { ProjectServices } from 'src/app/services/createproject/project.service';
-import { UserprofileServices } from 'src/app/services/userprofile/userprofile.service';
+import { HomeprojectsServices } from 'src/app/services/homeprojects/homeprojects.service';
 
 @Component({
     selector: 'app-home',
@@ -11,10 +11,10 @@ export class HomeComponent {
     
    proyectos: any = [];
 
-   constructor(private projectServices: ProjectServices, private getProjectsService: UserprofileServices){
+   constructor(private projectServices: ProjectServices, private homeProjectService: HomeprojectsServices){
         this.proyectos = this.projectServices.getProjects();
         
-        /*this.getProjectsService.getAllProjectsNoCategory().subscribe(
+        /*this.homeProjectService.getAllProjectsNoCategory().subscribe(
             data => {
                 this.proyectos = data.message;
                 console.log(this.proyectos); // Se guardaron todos los proyectos en user_projects.
