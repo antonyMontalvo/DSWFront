@@ -50,35 +50,35 @@
                         <div class="col-6">
                             <select name="category" id="categorySelectBox" class="form-control custom-select" ngModel>
 
-                                <option value="1">Arte</option>
+                                <option value="Arte">Arte</option>
 
-                                <option value="1">Comics</option>
+                                <option value="Comics">Comics</option>
 
-                                <option value="1">Hazlo tu mismo</option>
+                                <option value="Hazlo tu mismo">Hazlo tu mismo</option>
 
-                                <option value="1">Baile</option>
+                                <option value="Baile">Baile</option>
 
-                                <option value="1">Diseño</option>
+                                <option value="Diseño">Diseño</option>
 
-                                <option value="1">Moda</option>
+                                <option value="Moda">Moda</option>
 
-                                <option value="1">Peliculas &amp; Video</option>
+                                <option value="Peliculas">Peliculas &amp; Video</option>
 
-                                <option value="1">Comida</option>
+                                <option value="Comida">Comida</option>
 
-                                <option value="1">Juegos</option>
+                                <option value="Juegos">Juegos</option>
 
-                                <option value="1">Periodismo</option>
+                                <option value="Periodismo">Periodismo</option>
 
-                                <option value="1">Musica</option>
+                                <option value="Musica">Musica</option>
 
-                                <option value="1">Fotografía</option>
+                                <option value="Fotografia">Fotografía</option>
 
-                                <option value="1">Publicaciones</option>
+                                <option value="Publicaciones">Publicaciones</option>
 
-                                <option value="1">Tecnología</option>
+                                <option value="Tecnologìa">Tecnología</option>
 
-                                <option value="1">Teatro</option>
+                                <option value="Teatro">Teatro</option>
 
                             </select>
                         </div>
@@ -102,77 +102,6 @@
                     </div>
                 </div>
                 <!--Fin pais-->
-
-                <!--Meta-->
-                <div class="form-group my-4">
-                    <label for="projectGoal">Meta</label>
-                    <div class="input-group  col-4 pl-0">
-                        <input type="text" #projectGoal="ngModel" name="monetaryGoal"
-                            class="form-control form-control-lg" placeholder="" value="0" pattern="[0-9]+" ngModel>
-                        <span class="input-group-addon">$</span>
-                    </div>
-                    <p id="projectGoal" class="form-text text-muted">
-                        Define una meta alcanzable que cubra lo que necesitas para completar tu proyecto.
-                        El financiamiento es todo o nada. Si no cumples tu meta, no recibirás ninguna contribución.
-                    </p>
-                </div>
-
-                <div class="alert alert-danger" role="alert" *ngIf="projectGoal.touched && !projectGoal.valid">
-                    <div *ngIf="!projectGoal.valid">Sólo se permite el ingreso de números, no letras ni espacios.</div>
-                </div>
-                <!--Fin meta-->
-
-
-                <!--Inicio fechas-->
-                <div class="row">
-                    <div class="col-6">
-                        <!--Start Date-->
-                        <div class="form-group my-4">
-                            <label for="projectStartDate">Fecha de inicio</label>
-                            <input type="date" #projectStatDate="ngModel" name="startDate"
-                                class="form-control form-control-lg" value="" ngModel>
-                            <p id="projectStartDate" class="form-text text-muted">
-                                Fecha de inicio del proyecto.
-                            </p>
-                        </div>
-                        <!--Fin Start Date-->
-                    </div>
-
-                    <div class="col-6">
-                        <!--End Date-->
-                        <div class="form-group my-4">
-                            <label for="projectEndDate">Fecha de finalizacion</label>
-                            <input type="date" #projectStatDate="ngModel" name="endDate"
-                                class="form-control form-control-lg" value="" ngModel>
-                            <p id="projectEndDate" class="form-text text-muted">
-                                Fecha de finalizacion del proyecto.
-                            </p>
-                        </div>
-                        <!--Fin End Date-->
-                    </div>
-                </div>
-                <!--Fin fechas-->
-
-                <!--Riesgos y desafios-->
-                <div class="form-group my-4">
-
-                    <div class="form-group">
-                        <label for="projectRisks">Riesgos y desafíos</label>
-
-                        <textarea #projectRisks="ngModel" name="challenges" class="form-control" rows="7"
-                            pattern="[a-zA-Z0-9\s]+" ngModel></textarea>
-                        <p class="mt1 my-2">Algunos de los riesgos y desafíos comunes que quizás desees abordar son
-                            el
-                            presupuesto, los plazos para las recompensas y para el proyecto en sí, el tamaño de tu
-                            audiencia...</p>
-
-                    </div>
-                </div>
-
-                <div class="alert alert-danger" role="alert" *ngIf="projectRisks.touched && !projectRisks.valid">
-                    <div *ngIf="!projectRisks.valid">Sólo puedes ingresar letras (sin tilde) y números.</div>
-                </div>
-                <!--Fin riesgos y desafios-->
 
                 <button type="submit" class="btn btn-lg btn-primary btn-block col-4 mx-auto">Empezar proyecto</button>
 

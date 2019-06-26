@@ -3,8 +3,4 @@ export interface ProjectI{
     shortDescription: string,
     category: string,
     ubication: string,
-    monetaryGoal: number,
-    startDate: Date,
-    endDate: Date,
-    challenges: string
 }

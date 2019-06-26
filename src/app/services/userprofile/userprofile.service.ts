@@ -47,4 +47,25 @@ export class UserprofileServices {
         this.token = localStorage.getItem("ACCESS_TOKEN");
         return this.token;
     }
+
+    /* Todos los proyectos sin categoria */
+    getAllProjectsNoCategory(): Observable<JwtResponseMyProjects> {
+
+        const httpOptions = {
+            headers: new HttpHeaders({
+                'Content-Type': 'application/json',
+                'Authorization': 'Bearer ' + this.getToken()
+            })
+        };
+
+        return this.httpClient.get<JwtResponseMyProjects>(`${this.AUTH_SERVER}/proyects`, httpOptions).pipe(tap(
+                (res: JwtResponseMyProjects) => {
+                    console.log(res.message);
+                    console.log(this.getToken());
+                    if (res) {
+                        console.log('Obtenidos los proyectos.');
+                    }
+                })
+            );
+    }
 }
