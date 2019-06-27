@@ -28,6 +28,7 @@ import { AdminComponent } from './components/body/admin/admin.component';
 import { HomeprojectsServices } from './services/homeprojects/homeprojects.service';
 import { ProjectscategoryServices } from './services/projectscategory/projectscategory.service';
 import { EndprojectServices } from './services/endproject/endproject.service';
+import { DataprojectServices } from './services/dataproject/dataproject.service';
 
 
 
@@ -69,7 +70,8 @@ import { EndprojectServices } from './services/endproject/endproject.service';
     UserprofileServices, // Traer todos los proyectos de un usuario y todo lo relacionado a él
     HomeprojectsServices, // Todos los proyectos
     ProjectscategoryServices, // Proyectos por categoria
-    EndprojectServices
+    EndprojectServices,
+    DataprojectServices
   ],
   
   bootstrap: [AppComponent]

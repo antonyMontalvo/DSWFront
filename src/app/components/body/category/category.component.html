@@ -21,8 +21,8 @@
                                 </p>
                                 <p class="card-text">{{proyecto.short_desc}}</p>
                                 <div class="progress">
-                                    <div class="progress-bar" role="progressbar" style="width: 76%" aria-valuenow="76"
-                                        aria-valuemin="0" aria-valuemax="100"></div>
+                                    <div class="progress-bar" role="progressbar"  aria-valuenow="76"
+                                        aria-valuemin="0" aria-valuemax="100" [ngStyle]="{'width':proyecto.percentage+'%'}"></div>
                                 </div>
                                 <p class="mb-1">{{proyecto.percentage}}% patrocinado</p>
                             </div>

@@ -507,7 +507,7 @@
                                     <input type="email" class="form-control form-control-lg"
                                         #collaboratorEmail="ngModel" placeholder="Ingresa un email"
                                         name="collaboratorEmail" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$"
-                                        [(ngModel)]="proyecto.collaborators[0].email">
+                                        ngModel> <!--Cambialo acá gaaa-->
                                 </div>
                                 <div class="alert alert-danger" role="alert"
                                     *ngIf="collaboratorEmail.touched && !collaboratorEmail.valid">

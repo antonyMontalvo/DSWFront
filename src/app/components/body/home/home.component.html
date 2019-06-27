@@ -19,11 +19,11 @@
 
        
         <ng-container *ngFor="let proyecto of proyectos">
-            <div class="row align-items-center my-5" *ngIf="proyecto.rating == 1">
+            <div class="row align-items-center my-5" *ngIf="proyecto.title == 'The Transphobia Project'">
 
                 <!--Imagen izq-->
                 <div class="col-lg-7">
-                    <img class="img-fluid rounded mb-4 mb-lg-0 ml-5" src="./assets/img/day1.png" alt="">
+                    <img class="img-fluid rounded mb-4 mb-lg-0 ml-5" src="{{proyecto.image.imageURL}}" alt="">
                 </div>
 
                 <!--Card desc-->
@@ -35,7 +35,7 @@
 
                         <br />
                         <div class="progress">
-                            <div class="progress-bar" role="progressbar" style="width: 20%" aria-valuenow="20"
+                            <div class="progress-bar" role="progressbar" [ngStyle]="{'width':proyecto.percentage+'%'}" aria-valuenow="20"
                                 aria-valuemin="0" aria-valuemax="100"></div>
                         </div>
                         <p>{{proyecto.percentage}}% funded</p>
@@ -46,7 +46,7 @@
 
 
             <!--Card Footer-->
-            <div class="card-footer text-muted mt-4" *ngIf="proyecto.rating == 1" style="background: #f7f8fa">
+            <div class="card-footer text-muted mt-4" *ngIf="proyecto.title == 'The Transphobia Project'" style="background: #f7f8fa">
                 <div class="row ">
                     <div class="col-sm-12">
                         <div class="row ">
@@ -60,7 +60,7 @@
                             </div>
                             <div class="col text-center">
                                 <p class="mt-0 mb-0">Acaba el</p>
-                                <h5 class="mt-0 mb-0">{{proyecto.end_date}}</h5>
+                                <h5 class="mt-0 mb-0">{{proyecto.end_date |date: 'EEEE, MMM d'}}</h5>
                             </div>
                             <div class="col text-center">
                                 <p class="mt-0 mb-0">Meta</p>
@@ -75,12 +75,11 @@
     </div>
     <!--Fin #1 card-->
 
-    <!--<div class="card text-white bg-secondary my-5 py-4 text-center">
+    <div class="card text-white bg-secondary my-5 py-4 text-center">
         <div class="card-body">
-            <p class="text-white m-0">This call to action card is a great place to showcase some important information
-                or display a clever tagline!</p>
+            <p class="text-white m-0">“La creatividad requiere tener el valor de desprenderse de las certezas” - Erich Fromm.</p>
         </div>
-    </div>-->
+    </div>
 
 </div>
 
@@ -118,7 +117,7 @@
                             </p>
                             <p class="card-text">{{proyecto.short_desc}}</p>
                             <div class="progress">
-                                <div class="progress-bar" role="progressbar" style="width: 76%" aria-valuenow="40"
+                                <div class="progress-bar" role="progressbar" [ngStyle]="{'width':proyecto.percentage+'%'}" aria-valuenow="40"
                                     aria-valuemin="0" aria-valuemax="100"></div>
                             </div>
                             <p class="mb-1">{{proyecto.percentage}}% patrocinado</p>
@@ -187,7 +186,7 @@
                             </p>
                             <p class="card-text">{{proyecto.short_desc}}</p>
                             <div class="progress">
-                                <div class="progress-bar" role="progressbar" style="width: 76%" aria-valuenow="76"
+                                <div class="progress-bar" role="progressbar" [ngStyle]="{'width':proyecto.percentage+'%'}" aria-valuenow="76"
                                     aria-valuemin="0" aria-valuemax="100"></div>
                             </div>
                             <p class="mb-1">{{proyecto.percentage}}% patrocinado</p>
@@ -207,8 +206,8 @@
                                             <h6 class="mt-0 mb-0"><strong>${{proyecto.monetary_goal}}</strong></h6>
                                         </div>
                                         <div class="col-4 text-center">
-                                            <h6 class="mt-0 mb-0"><strong>{{proyecto.end_date}}</strong></h6>
                                             <p class="mt-0 mb-0">Acaba&nbsp;el</p>
+                                            <h6 class="mt-0 mb-0"><strong>{{proyecto.end_date| date: 'EEEE, MMM d'}}</strong></h6>
                                         </div>
                                     </div>
                                 </div>

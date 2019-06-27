@@ -14,29 +14,29 @@
 
                         <!--Primera parte de info proyecto-->
                         <div class="col-sm-10">
-                            <h3>{{proyecto.titulo}}</h3>
+                            <h3>{{proyecto.title}}</h3>
                             <br />
-                            <p class="mb-1">24% patrocinado</p>
+                            <p class="mb-1">{{proyecto.percentage}}% patrocinado</p>
                             <div class="progress">
-                                <div class="progress-bar" role="progressbar" style="width: 29%" aria-valuenow="29"
+                                <div class="progress-bar" role="progressbar" [ngStyle]="{'width':proyecto.percentage+'%'}" aria-valuenow="29"
                                     aria-valuemin="0" aria-valuemax="100"></div>
                             </div>
 
 
                             <div class="row">
                                 <div class="col-sm-6">
-                                    <h3>${{proyecto.din_actual}}</h3>
-                                    <p class="mb-1">patrocinado por {{proyecto.patrocinadores}} personas</p>
+                                    <!--<h3>${{proyecto.din_actual}}</h3>-->
+                                    <p class="mb-1">patrocinado por {{proyecto.sponsors.length}} personas</p>
                                 </div>
                                 <div class="col-sm-6 text-right">
-                                    <h3>${{proyecto.meta}}</h3>
+                                    <h3>${{proyecto.monetary_goal}}</h3>
                                     <p class="mb-1">Meta de financiación</p>
                                 </div>
                             </div>
                             <br />
                             <br />
 
-                            <iframe width="100%" height="350" src="https://www.youtube.com/embed/Pwq89K6RBTI"
+                            <iframe width="100%" height="350" src="https://www.youtube.com/embed/he65UuR7qO0"
                                 frameborder="0" allowfullscreen></iframe>
                         </div>
                         <!--Fin primera parte-->
@@ -79,15 +79,7 @@
                                     class="img-fluid" /></a>
                         </div>
                         <div class="col-md-8">
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam odio est, placerat nec
-                                iaculis ut, sodales nec libero.
-                                Quisque ac est quis velit pharetra sollicitudin. Mauris maximus, libero non fermentum
-                                placerat, turpis nulla laoreet
-                                sapien, ut cursus nisi metus et ligula. Integer semper porttitor condimentum. Sed
-                                vulputate urna sapien, non feugiat
-                                nulla tincidunt eu. Quisque aliquet quam sed libero consectetur mollis. Nunc id
-                                hendrerit eros. In porta, urna sed
-                                condimentum aliquam, felis orci vestibulum odio, et dictum risus libero at nisi.</p>
+                            <p>{{proyecto.short_desc}}</p>
                         </div>
                     </div>
 
@@ -117,7 +109,7 @@
                     <!-- Contenido pestañas-->
                     <div class="tab-content">
                         <div class="tab-pane active" id="home" role="tabpanel">
-                            <p><strong>I'm gonna build me an airport, put my name on it. Why, Michael? So you can fly
+                            <!--<p><strong>I'm gonna build me an airport, put my name on it. Why, Michael? So you can fly
                                     away from your feelings? I don't care if it takes from now till the end of
                                     Shrimpfest.</strong></p>
 
@@ -142,7 +134,8 @@
                                 shower. Boy, I sure feel like a Mary without a Peter and a Paul. And although the
                                 intervention didn't work, it turned into one of the Bluth family's better parties. I'm
                                 tired of trying to find happiness through lies and self-medicating. If you need me, I'll
-                                be at the bar. </p>
+                                be at the bar. </p>-->
+                            {{proyecto.long_desc[0].description}}
                         </div>
 
                         <div class="tab-pane" id="updates" role="tabpanel">
@@ -180,7 +173,7 @@
                             </div>
                         </div>
 
-                        <div class="tab-pane active" id="extra" role="tabpanel">
+                        <div class="tab-pane" id="extra" role="tabpanel">
                             <p><strong>I'm gonna build me an airport, put my name on it. Why, Michael? So you can fly
                                     away from your feelings? I don't care if it takes from now till the end of
                                     Shrimpfest.</strong></p>
@@ -257,11 +250,11 @@
                                                     </button>
                                                 </div>
                                                 <div class="modal-body">
+                                                    <ng-container *ngFor="let recompensa of proyecto.reward; let i = index">
                                                     <select class="custom-select">
-                                                        <option value="1">One</option>
-                                                        <option value="2">Two</option>
-                                                        <option value="3">Three</option>
+                                                        <option value="{{recompensa.title}}">{{recompensa.title}} - ${{recompensa.min_amount}}</option>
                                                     </select>
+                                                    </ng-container>
                                                 </div>
                                                 <div class="modal-footer">
                                                     <button type="button" class="btn btn-primary">Patrocinar</button>
@@ -292,7 +285,7 @@
                                                 <div class="modal-body">
                                                     <p class="lead">Necesitamos conocer unas cosas sobre ti.</p>
                                                     <form>
-
+                                                        <!--
                                                         <div class="form-group">
                                                             <label for="formGroupExampleInput">Nombres</label>
                                                             <input type="text" class="form-control"
@@ -321,7 +314,7 @@
                                                                 #collaboratorEmail="ngModel" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" 
                                                                 placeholder="Email" ngModel>
                                                         </div>
-
+                                                    -->
                                                     </form>
                                                 </div>
                                                 <div class="modal-footer">
@@ -331,9 +324,9 @@
                                         </div>
                                     </div>
 
-
-                                    <p>This project will only be funded if at least $15,000 is pledged by Wednesday May
-                                        8, 3:00pm</p>
+                                    <br>
+                                    <p>Este proyecto pide una colaboración de al menos ${{proyecto.monetary_goal}} hasta el
+                                    {{proyecto.end_date | date: 'MM/dd/yyyy'}}</p>
                                 </div>
                             </div>
                         </div>
@@ -349,14 +342,14 @@
                     <div id="accordion" role="tablist" aria-multiselectable="true">
 
                         <!--Inicio pestaña recompensa 1-->
-                        <ng-container *ngFor="let recompensa of proyecto.recompensas; let i = index">
+                        <ng-container *ngFor="let recompensa of proyecto.reward; let i = index">
                             <div class="card">
                                 <div class="card-header" role="tab" [attr.id]="'heading'+i">
                                     <!--data array en html tag-->
                                     <h6 class="mb-0">
                                         <a data-toggle="collapse" data-parent="#accordion" [attr.href]="'#collapse'+i"
                                             aria-expanded="false" [attr.aria-controls]="'collapse'+i">
-                                            Contribuir ${{recompensa.cantidad}} o más
+                                            Contribuir ${{recompensa.min_amount}} o más
                                         </a>
                                     </h6>
                                 </div>
@@ -364,15 +357,10 @@
                                 <div [attr.id]="'collapse'+i" class="collapse " role="tabpanel"
                                     [attr.aria-labelledby]="'heading'+i">
                                     <div class="card-block">
-                                        <h5><strong>{{recompensa.titulo}}</strong></h5>
-                                        <p>{{recompensa.descrip}}</p>
-                                        <p>Incluye:</p>
-                                        <ul>
-                                            <li>Item 1</li>
-                                            <li>Item 2</li>
-                                        </ul>
-                                        <small class="text-muted">{{recompensa.reclamados}} obtenidos</small><br />
-                                        <small class="text-muted">Envío a {{recompensa.envio}}</small><br /><br />
+                                        <h5><strong>{{recompensa.title}}</strong></h5>
+                                        <p>{{recompensa.description}}</p>
+                                        
+                                        <small class="text-muted">Envío a todo el mundo</small><br /><br />
 
                                         <a href="" class="btn btn-lg btn-primary btn-block">Seleccionar esta
                                             recompensa</a>
