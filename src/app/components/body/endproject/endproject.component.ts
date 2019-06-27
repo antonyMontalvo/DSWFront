@@ -11,7 +11,7 @@ import { EndprojectServices } from 'src/app/services/endproject/endproject.servi
 export class EndprojectComponent {
 
     private tokenIn: Boolean;
-    private user_data: any;
+    public user_data: any;
     private _id: string;
     proyecto: any = {
         idProyect: this._id,
