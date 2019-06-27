@@ -14,7 +14,7 @@ import { AdminComponent } from './components/body/admin/admin.component';
 const routes: Routes = [
     {path: '', component: HomeComponent},
     {path: 'project/:id', component: ProjectComponent},
-    {path: 'end_project', component: EndprojectComponent},
+    {path: 'end_project/:_id', component: EndprojectComponent},
     {path: 'profile/:token', component: ProfileComponent},
     {path: 'config', component: ProfileconComponent},
     {path: 'about', component: AboutComponent},

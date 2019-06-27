@@ -44,7 +44,7 @@
 
                     <br />
                     <br />
-                    
+
                     <!--Overview-->
                     <div class="row">
                         <div class="col-md-12">
@@ -181,20 +181,20 @@
                         </div>
 
                         <div class="tab-pane active" id="extra" role="tabpanel">
-                                <p><strong>I'm gonna build me an airport, put my name on it. Why, Michael? So you can fly
-                                        away from your feelings? I don't care if it takes from now till the end of
-                                        Shrimpfest.</strong></p>
-    
-                                <h6><strong>Lorem Ipsum is not a major key to success. </strong></h6>
-                                <p>I’m giving you cloth talk, cloth. Special cloth alert, cut from a special cloth. Fan luv.
-                                    Always remember in the jungle there’s a lot of they in there, after you overcome they,
-                                    you will make it to paradise. Watch your back, but more importantly when you get out the
-                                    shower, dry your back, it’s a cold world out there. Every chance I get, I water the
-                                    plants, Lion! You see that bamboo behind me though, you see that bamboo? Ain’t nothin’
-                                    like bamboo. Bless up.</p>
-    
-                            </div>
-                        
+                            <p><strong>I'm gonna build me an airport, put my name on it. Why, Michael? So you can fly
+                                    away from your feelings? I don't care if it takes from now till the end of
+                                    Shrimpfest.</strong></p>
+
+                            <h6><strong>Lorem Ipsum is not a major key to success. </strong></h6>
+                            <p>I’m giving you cloth talk, cloth. Special cloth alert, cut from a special cloth. Fan luv.
+                                Always remember in the jungle there’s a lot of they in there, after you overcome they,
+                                you will make it to paradise. Watch your back, but more importantly when you get out the
+                                shower, dry your back, it’s a cold world out there. Every chance I get, I water the
+                                plants, Lion! You see that bamboo behind me though, you see that bamboo? Ain’t nothin’
+                                like bamboo. Bless up.</p>
+
+                        </div>
+
                         <div class="tab-pane" id="settings" role="tabpanel">...</div>
                     </div>
                     <!--Fin contenido pestañas-->
@@ -214,7 +214,8 @@
                     <div class="card">
                         <div class="card-block" class="pb-1">
                             <div class="row">
-                                <div class="col-sm-11 pl-5 mt-4"> <!--Se edito las dimensiones del cuadro-->
+                                <div class="col-sm-11 pl-5 mt-4">
+                                    <!--Se edito las dimensiones del cuadro-->
 
                                     <h4>Proyecto por</h4>
 
@@ -234,8 +235,103 @@
                                         </div>
 
                                     </div>
-                                    <a href="" class="btn btn-lg btn-primary btn-block">Patrocinar este proyecto</a><br />
-                                    <a href="" class="btn btn-lg btn-warning btn-block">Colaborar con el proyecto</a><br />
+
+
+                                    <button type="button" class="btn btn-primary btn-lg btn-block" data-toggle="modal"
+                                        data-target="#exampleModal">
+                                        Patrocinar este proyecto
+                                    </button>
+                                    <br>
+
+                                    <!-- Modal -->
+                                    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog"
+                                        aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                        <div class="modal-dialog" role="document">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h5 class="modal-title text-center" id="exampleModalLabel">
+                                                        Seleccionar pack de contribución</h5>
+                                                    <button type="button" class="close" data-dismiss="modal"
+                                                        aria-label="Close">
+                                                        <span aria-hidden="true">&times;</span>
+                                                    </button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <select class="custom-select">
+                                                        <option value="1">One</option>
+                                                        <option value="2">Two</option>
+                                                        <option value="3">Three</option>
+                                                    </select>
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn btn-primary">Patrocinar</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+                                    <button type="button" class="btn btn-warning btn-lg btn-block" data-toggle="modal"
+                                        data-target="#exampleModalColaborar">
+                                        Colaborar con el proyecto
+                                    </button>
+
+                                    <!-- Modal -->
+                                    <div class="modal fade" id="exampleModalColaborar" tabindex="-1" role="dialog"
+                                        aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                        <div class="modal-dialog" role="document">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h5 class="modal-title text-center" id="exampleModalLabel">
+                                                        Apoyo presencial</h5>
+                                                    <button type="button" class="close" data-dismiss="modal"
+                                                        aria-label="Close">
+                                                        <span aria-hidden="true">&times;</span>
+                                                    </button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <p class="lead">Necesitamos conocer unas cosas sobre ti.</p>
+                                                    <form>
+
+                                                        <div class="form-group">
+                                                            <label for="formGroupExampleInput">Nombres</label>
+                                                            <input type="text" class="form-control"
+                                                                #collaboratorName="ngModel" pattern="[a-zA-Z\s]+" 
+                                                                placeholder="Nombre" ngModel>
+                                                        </div>
+
+                                                        <div class="form-group">
+                                                            <label for="formGroupExampleInput2">Apellidos</label>
+                                                            <input type="text" class="form-control"
+                                                                #collaboratorLastName="ngModel" pattern="[a-zA-Z\s]+" 
+                                                                placeholder="Apellidos" ngModel>
+                                                        </div>
+
+                                                        <div class="form-group">
+                                                            <label for="formGroupExampleInput2">Documento de
+                                                                identidad</label>
+                                                            <input type="text" class="form-control"
+                                                                #collaboratorDNI="ngModel" pattern="[0-9]+" 
+                                                                placeholder="DNI" ngModel>
+                                                        </div>
+
+                                                        <div class="form-group">
+                                                            <label for="formGroupExampleInput2">Email</label>
+                                                            <input type="text" class="form-control"
+                                                                #collaboratorEmail="ngModel" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" 
+                                                                placeholder="Email" ngModel>
+                                                        </div>
+
+                                                    </form>
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn btn-primary">Colaborar</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+
                                     <p>This project will only be funded if at least $15,000 is pledged by Wednesday May
                                         8, 3:00pm</p>
                                 </div>
@@ -249,13 +345,14 @@
 
                     <!--Recompensas-->
                     <h3>Recompensas</h3>
-                        <hr />
-                        <div id="accordion" role="tablist" aria-multiselectable="true">
+                    <hr />
+                    <div id="accordion" role="tablist" aria-multiselectable="true">
 
-                            <!--Inicio pestaña recompensa 1-->
-                            <ng-container *ngFor="let recompensa of proyecto.recompensas; let i = index">
+                        <!--Inicio pestaña recompensa 1-->
+                        <ng-container *ngFor="let recompensa of proyecto.recompensas; let i = index">
                             <div class="card">
-                                <div class="card-header" role="tab" [attr.id]="'heading'+i"> <!--data array en html tag-->
+                                <div class="card-header" role="tab" [attr.id]="'heading'+i">
+                                    <!--data array en html tag-->
                                     <h6 class="mb-0">
                                         <a data-toggle="collapse" data-parent="#accordion" [attr.href]="'#collapse'+i"
                                             aria-expanded="false" [attr.aria-controls]="'collapse'+i">
@@ -264,7 +361,8 @@
                                     </h6>
                                 </div>
 
-                                <div [attr.id]="'collapse'+i" class="collapse " role="tabpanel" [attr.aria-labelledby]="'heading'+i">
+                                <div [attr.id]="'collapse'+i" class="collapse " role="tabpanel"
+                                    [attr.aria-labelledby]="'heading'+i">
                                     <div class="card-block">
                                         <h5><strong>{{recompensa.titulo}}</strong></h5>
                                         <p>{{recompensa.descrip}}</p>
@@ -276,16 +374,17 @@
                                         <small class="text-muted">{{recompensa.reclamados}} obtenidos</small><br />
                                         <small class="text-muted">Envío a {{recompensa.envio}}</small><br /><br />
 
-                                        <a href="" class="btn btn-lg btn-primary btn-block">Seleccionar esta recompensa</a>
+                                        <a href="" class="btn btn-lg btn-primary btn-block">Seleccionar esta
+                                            recompensa</a>
 
                                     </div>
                                 </div>
                             </div>
-                            </ng-container>
-                            <!--Fin pestaña-->
+                        </ng-container>
+                        <!--Fin pestaña-->
 
-                        </div>
-                        <!--Fin recompensas-->
+                    </div>
+                    <!--Fin recompensas-->
 
 
                 </div>

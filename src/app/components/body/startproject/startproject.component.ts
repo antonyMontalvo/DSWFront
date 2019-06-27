@@ -33,7 +33,8 @@ export class StartprojectComponent {
         if (form.valid) {
             this.startProject.createProject(form.value).subscribe(res => {
                 console.log('Guardado con éxito.');
-                this.router.navigateByUrl('/');
+                console.log(res.message)
+                this.router.navigateByUrl(`/end_project/${res.message._id}`);
             });
         } else {
             console.log('No valido.');

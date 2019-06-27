@@ -4,6 +4,7 @@
     <p class="lead">Da a conocer tu idea al mundo.</p>
     <hr>
     <div class="row">
+
         <div class="col-3">
             <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
                 <a class="nav-link active" id="v-pills-basico-tab" data-toggle="pill" href="#v-pills-basico" role="tab"
@@ -27,28 +28,661 @@
                     <h3>Cuenta</h3>
                 </a>
             </div>
+            <br>
+            <button type="button" (click)='onEndProject()' class="btn btn-lg btn-primary btn-block my-2">Crear</button>
         </div>
         <div class="col-9">
             <div class="tab-content" id="v-pills-tabContent">
+
+                <!--Básico (1)-->
                 <div class="tab-pane fade show active" id="v-pills-basico" role="tabpanel"
                     aria-labelledby="v-pills-basico-tab">
-                    <app-stepone></app-stepone>
+
+                    <!--Paso 1-->
+                    <div class="col-sm-12">
+                        <h1>Empecemos</h1>
+                        <p>Haz una buena primera impresión con el título y la imagen de tu proyecto,
+                            establece la meta de finaciamiento, la duración de la campaña y la categoría del proyecto.
+                        </p>
+
+
+                        <!--Imagen-->
+                        <div class="form-group light-blue">
+                            <label for="exampleInputEmail1">Imagen de proyecto</label>
+                            <p class="form-text text-muted">
+                                Esto es la primera cosa que las personas veran cuando se crucen con tu proyecto.
+                                Escoge una imagen
+                                nítida y sin texto.
+                            </p>
+                            <p class="form-control-static">
+                            </p>
+                            <div style="border: 1px dashed #000; background: #fff; width: 100%; display: block; padding: 20px;"
+                                class="text-center">
+                                <p class="text-center">
+                                    <label for="file" class="file-config"><strong>Escoge una imagen desde tu
+                                            computadora.</strong></label>
+                                    <input type="file" id="file" value="Escoge una imagen desde tu computadora."
+                                        multiple hidden>
+                                </p>
+                                <p>Esta es la imagen principal relacionada con tu proyecto. ¡Elige la más genial!
+                                </p>
+                                <p>La imagen como mínimo debe tener <strong>1024x576 pixeles</strong> • 16:9 aspect
+                                    ratio</p>
+                            </div>
+                            <p></p>
+                            <p class="form-text text-muted">
+                                JPEG, PNG, GIF, or BMP • Límite de 5MB por imagen
+                            </p>
+                        </div>
+                        <!--Fin imagen-->
+
+                        <!--Titulo-->
+                        <div class="form-group light-blue">
+                            <label for="projectTitle">Título del proyecto {{proyecto.title}}</label>
+                            <input type="text" #projectTitle="ngModel" name="title" class="form-control form-control-lg"
+                                placeholder="Titulo" pattern="[a-zA-Z0-9\s]+" [(ngModel)]="proyecto.title">
+                            <p class="form-text text-muted">
+                                Escribe un título claro y conciso que ayude a las personas a comprender rápidamente
+                                la esencia de tu
+                                proyecto.
+                            </p>
+                        </div>
+
+                        <div class="alert alert-danger" role="alert"
+                            *ngIf="projectTitle.touched && !projectTitle.valid">
+                            <div *ngIf="!projectTitle.valid">No se permiten caracteres especiales como /, -, $, !,
+                                etc.</div>
+                        </div>
+
+
+                        <!--Fin titulo-->
+
+                        <!--Descripción corta-->
+                        <div class="form-group light-blue">
+                            <label for="projectSdesc">Descripción corta</label>
+                            <textarea #projectSdesc="ngModel" name="shortDescription"
+                                class="form-control form-control-lg" rows="3" pattern="[a-zA-Z0-9\s]+"
+                                [(ngModel)]="proyecto.shortDescription"></textarea>
+                            <p id="projectSdesc" class="form-text text-muted">
+                                Ofrece una pequeña descripción de lo que estás haciendo.
+                            </p>
+                        </div>
+
+                        <div class="alert alert-danger" role="alert"
+                            *ngIf="projectSdesc.touched && !projectSdesc.valid">
+                            <div *ngIf="!projectSdesc.valid">No se permiten caracteres especiales como /, -, $, !,
+                                etc.</div>
+                        </div>
+                        <!--Fin descripcion corta-->
+
+                        <!--Categoria y sub-->
+                        <div class="form-group light-blue">
+                            <label for="categorySelectBox">Categoría</label>
+                            <div class="row">
+                                <div class="col-6">
+                                    <select name="category" id="categorySelectBox" class="form-control custom-select"
+                                    [(ngModel)]="proyecto.category">
+
+                                        <option value="Arte">Arte</option>
+
+                                        <option value="Comics">Comics</option>
+
+                                        <option value="Solo">Hazlo tu mismo</option>
+
+                                        <option value="Baile">Baile</option>
+
+                                        <option value="Diseño">Diseño</option>
+
+                                        <option value="Moda">Moda</option>
+
+                                        <option value="Peliculas">Peliculas &amp; Video</option>
+
+                                        <option value="Comida">Comida</option>
+
+                                        <option value="Juegos">Juegos</option>
+
+                                        <option value="Periodismo">Periodismo</option>
+
+                                        <option value="Musica">Musica</option>
+
+                                        <option value="Fotografia">Fotografía</option>
+
+                                        <option value="Publicaciones">Publicaciones</option>
+
+                                        <option value="Tecnologia">Tecnología</option>
+
+                                        <option value="Teatro">Teatro</option>
+
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <!--Fin categoria y sub-->
+
+                        <!--Pais de proyecto-->
+                        <div class="form-group light-blue">
+                            <label for="projectUbication">Ubicación del proyecto</label>
+                            <div class="input-group  input-group-lg">
+                                <input type="text" #projectUbication="ngModel" name="ubication" class="form-control"
+                                    placeholder="Empieza a escribir tu ubicación..." pattern="[a-zA-Z\s,]+" 
+                                    [(ngModel)]="proyecto.ubication">
+                            </div>
+                        </div>
+
+                        <div class="alert alert-danger" role="alert"
+                            *ngIf="projectUbication.touched && !projectUbication.valid">
+                            <div *ngIf="!projectUbication.valid">No se permiten caracteres especiales como /, -, $,
+                                !, etc. ,
+                                ni números.
+                            </div>
+                        </div>
+                        <!--Fin pais-->
+
+
+                        <!--Duracion-->
+                        <div class="row">
+                            <div class="col-6">
+                                <!--Start Date-->
+                                <div class="form-group my-4">
+                                    <label for="projectStartDate">Fecha de inicio</label>
+                                    <input type="date" #projectStatDate="ngModel" name="startDate"
+                                        class="form-control form-control-lg" value=""  [(ngModel)]="proyecto.startDate">
+                                    <p id="projectStartDate" class="form-text text-muted">
+                                        Fecha de inicio del proyecto.
+                                    </p>
+                                </div>
+                                <!--Fin Start Date-->
+                            </div>
+
+                            <div class="col-6">
+                                <!--End Date-->
+                                <div class="form-group my-4">
+                                    <label for="projectEndDate">Fecha de finalizacion</label>
+                                    <input type="date" #projectStatDate="ngModel" name="endDate"
+                                        class="form-control form-control-lg" value=""  [(ngModel)]="proyecto.endDate">
+                                    <p id="projectEndDate" class="form-text text-muted">
+                                        Fecha de finalizacion del proyecto.
+                                    </p>
+                                </div>
+                                <!--Fin End Date-->
+                            </div>
+                        </div>
+                        <!--Fin fechas-->
+
+
+                        <!--Meta-->
+                        <div class="form-group light-blue">
+                            <label for="projectGoal">Meta</label>
+                            <div class="input-group  col-4 pl-0">
+                                <input type="text" #projectGoal="ngModel" name="monetaryGoal"
+                                    class="form-control form-control-lg" placeholder="" value="0" pattern="[0-9]+"
+                                    [(ngModel)]="proyecto.monetaryGoal">
+                                <span class="input-group-addon" id="projectGoal">$</span>
+                            </div>
+                            <p id="projectGoal" class="form-text text-muted">
+                                Define una meta alcanzable que cubra lo que necesitas para completar tu proyecto.
+                                El financiamiento es todo o nada. Si no cumples tu meta, no recibirás ninguna
+                                contribución.
+                            </p>
+                        </div>
+
+                        <div class="alert alert-danger" role="alert" *ngIf="projectGoal.touched && !projectGoal.valid">
+                            <div *ngIf="!projectGoal.valid">Sólo se permite el ingreso de números, no letras ni
+                                espacios.</div>
+                        </div>
+                        <!--Fin meta-->
+
+
+
+                        <br>
+                        <br>
+                        <br>
+
+                    </div>
+                    <!--Fin Paso 1-->
                 </div>
+                <!--Fin básico (1)-->
+
+
+                <!--Historia (2)-->
                 <div class="tab-pane fade" id="v-pills-historia" role="tabpanel" aria-labelledby="v-pills-historia-tab">
-                    <app-steptwo></app-steptwo>
+
+                    <!--Paso 2-->
+                    <div class="col-sm-12">
+                        <h1>Presenta tu proyecto</h1>
+                        <p>Cuéntale a las personas por qué deberían entusiasmarse con tu proyecto. Sé específico, y a la
+                            vez claro y
+                            conciso.</p>
+
+
+
+                        <!--Video-->
+                        <div class="form-group light-blue">
+                            <div class="form-group row">
+                                <label for="projectUrlVideo" class="col-3 col-form-label">Video del proyecto
+                                    (opcional)</label>
+                                <div class="col-9">
+                                    <input type="text" #projectUrlVideo="ngModel" name="projectUrlVideo"
+                                        class="form-control form-control-lg" placeholder="Enlace a video"
+                                        pattern="https?://.+" [(ngModel)]="proyecto.link_video">
+                                    <br>
+                                    <p>Agrega un video que describa tu proyecto.
+                                        Cuéntale a las personas cómo se van a emplear los fondos recaudados, cómo
+                                        planeas llevarlo a
+                                        cabo, quién eres y por qué este proyecto es importante para ti.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="alert alert-danger" role="alert"
+                            *ngIf="projectUrlVideo.touched && !projectUrlVideo.valid">
+                            <div *ngIf="!projectUrlVideo.valid">Ingresa una url hacia un video.
+                                Ejemplo: 'https://www.youtube.com/watch?v=50rlHVe6g9Q'</div>
+                        </div>
+                        <!--Fin video-->
+
+                        <!--Descripcion larga-->
+                        <div class="form-group light-blue">
+
+                            <div class="form-group row">
+                                <label for="projectLdesc" class="col-3 col-form-label">Descripción del
+                                    proyecto</label>
+                                <div class="col-9">
+                                    <p class="mt-1">Describe cómo se van a emplear los fondos recaudados, por qué
+                                        este proyecto es
+                                        importante para ti, cómo planeas llevarlo a cabo y quién eres. Tu
+                                        descripción debe transmitirle
+                                        a los patrocinadores todo lo que necesitan saber. Si es posible, incluye
+                                        imágenes para
+                                        mostrarles de qué se trata tu proyecto y cómo son las recompensas.</p>
+                                    <textarea #projectLdesc="ngModel" name="longDescriptions" class="form-control"
+                                        rows="11" pattern="[a-zA-Z0-9\s]+" [(ngModel)]="proyecto.longDescriptions[0].description">
+                                    </textarea>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="alert alert-danger" role="alert"
+                            *ngIf="projectLdesc.touched && !projectLdesc.valid">
+                            <div *ngIf="!projectLdesc.valid">Sólo puedes ingresar letras (sin tilde) y números.
+                            </div>
+                        </div>
+                        <!--Fin descripcion larga-->
+
+                        <!--Riesgos y desafios-->
+                        <div class="form-group light-blue">
+
+                            <div class="form-group row">
+                                <label for="projectRisks" class="col-3 col-form-label">Riesgos y desafíos</label>
+                                <div class="col-9">
+                                    <p class="mt-1">Sé honesto acerca de los posibles riesgos y desafíos del
+                                        proyecto y cómo planeas
+                                        superarlos para completarlo.</p>
+                                    <textarea #projectRisks="ngModel" name="challenges" class="form-control" rows="7"
+                                        pattern="[a-zA-Z0-9\s]+" [(ngModel)]="proyecto.challenges"></textarea>
+                                    <p class="mt1 my-2">Algunos de los riesgos y desafíos comunes que quizás desees
+                                        abordar son el
+                                        presupuesto, los plazos para las recompensas y para el proyecto en sí, el
+                                        tamaño de tu
+                                        audiencia...</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="alert alert-danger" role="alert"
+                            *ngIf="projectRisks.touched && !projectRisks.valid">
+                            <div *ngIf="!projectRisks.valid">Sólo puedes ingresar letras (sin tilde) y números.
+                            </div>
+                        </div>
+                        <!--Fin riesgos y desafios-->
+
+
+                    </div>
+                    <!--Fin paso 2-->
+
                 </div>
+                <!--Fin Historia (2)-->
+
+
+                <!--Recompensa (3)-->
                 <div class="tab-pane fade" id="v-pills-recompensas" role="tabpanel"
                     aria-labelledby="v-pills-recompensas-tab">
-                    <app-stepthree></app-stepthree>
+
+                    <!--Paso 3-->
+                    <div class="col-sm-12">
+                        <h1>Agrega tus recompensas</h1>
+                        <p>Ofrece recompensas simples y significativas que acerquen a los patrocinadores a tu proyecto.
+                            Las recompensas no
+                            tienen que ser artículos materiales. Podrían ser experiencias especiales o vistazos tras
+                            bambalinas de tu
+                            proyecto.</p>
+
+
+
+                        <div class="form-group light-blue">
+                            <div class="row">
+                                <div class="col-md-3"><strong>Recompensa #</strong><br>
+                                </div>
+                                <div class="col-md-9">
+
+                                    <!--Titulo-->
+                                    <div class="form-group row">
+                                        <label for="rewardTitle" class="col-3 col-form-label">Titulo</label>
+                                        <div class="col-9">
+                                            <input type="text" #rewardTitle="ngModel" name="title" class="form-control"
+                                                placeholder="Ejm: Edición limitada firmada" pattern="[a-zA-Z0-9\s]+"
+                                                [(ngModel)]="proyecto.reward[0].title">
+                                        </div>
+                                    </div>
+
+                                    <div class="alert alert-danger" role="alert"
+                                        *ngIf="rewardTitle.touched && !rewardTitle.valid">
+                                        <div *ngIf="!rewardTitle.valid">No se permiten caracteres especiales como /,
+                                            -, $, !, etc.</div>
+                                    </div>
+                                    <!--Fin titulo-->
+
+                                    <!--Contribucion-->
+                                    <div class="form-group row">
+                                        <label for="min_amount" class="col-3 col-form-label">Monto de
+                                            contribución</label>
+                                        <div class="col-9">
+                                            <input type="text" #min_amount="ngModel" name="min_amount"
+                                                class="form-control" pattern="[0-9]+" [(ngModel)]="proyecto.reward[0].min_amount">
+                                        </div>
+                                    </div>
+
+                                    <div class="alert alert-danger" role="alert"
+                                        *ngIf="min_amount.touched && !min_amount.valid">
+                                        <div *ngIf="!min_amount.valid">Sólo se permite el ingreso de números, no
+                                            letras ni espacios.
+                                        </div>
+                                    </div>
+                                    <!--Fin contribucion-->
+
+                                    <!--Descripción-->
+                                    <div class="form-group row">
+                                        <label for="longDesc" class="col-3 col-form-label">Descripción</label>
+                                        <div class="col-9">
+                                            <textarea type="text" #longDesc="ngModel" name="description"
+                                                class="form-control" rows="6" pattern="[a-zA-Z0-9\s]+"
+                                                [(ngModel)]="proyecto.reward[0].description"></textarea>
+                                        </div>
+                                    </div>
+
+                                    <div class="alert alert-danger" role="alert"
+                                        *ngIf="longDesc.touched && !longDesc.valid">
+                                        <div *ngIf="!longDesc.valid">No se permiten caracteres especiales como /, -,
+                                            $, !, etc.</div>
+                                    </div>
+                                    <!--Fin descripción-->
+
+                                    <!--<div class="form-group row">
+                                                <label for="example-url-input" class="col-3 col-form-label">Entrega&nbsp;aproximada</label>
+                                                <div class="col-9">
+                                                    <input class="form-control" type="text" placeholder="YYYY/MM/DD" value=""
+                                                        id="example-url-input">
+                                                </div>
+                                            </div>
+                        
+                                            <div class="form-group row">
+                                                <label for="example-tel-input" class="col-3 col-form-label">Cantidad de la recompensa</label>
+                                                <div class="col-9">
+                                                    <select class="form-control custom-select">
+                                                        <option value="1">Ilimitada</option>
+                                                        <option value="2">50+</option>
+                                                        <option value="3">100+</option>
+                                                    </select>
+                                                </div>
+                                            </div>-->
+
+                                </div>
+                            </div>
+
+                        </div>
+
+
+
+                        <button type="button" class="btn btn-dark float-sm-right">Añadir otra recompensa</button>
+                        <p></p>
+
+                    </div>
+                    <!--Fin paso 3-->
                 </div>
+                <!--Fin recompensa (3)-->
+
+
+                <!--Acerca de ti (4)-->
                 <div class="tab-pane fade" id="v-pills-acercade" role="tabpanel" aria-labelledby="v-pills-acercade-tab">
-                    <app-stepfour></app-stepfour>
+
+                    <!--Paso 4-->
+                    <div class="col-sm-12">
+                        <h1>Preséntate</h1>
+                        <p>Dale a los patrocinadores una idea de quién eres y agrega colaboradores si trabajas con un
+                            equipo.</p>
+
+
+
+
+                        <div class="form-group light-blue">
+
+                            <div class="form-group row">
+                                <label for="example-text-input" class="col-3 col-form-label">Tu perfil</label>
+                                <div class="col-9">
+                                    <p>...</p>
+                                    <p>Esto aparecerá en la página de tu proyecto y debe incluir tu nombre, foto y
+                                        biografía.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group light-blue">
+
+                            <div class="form-group row">
+                                <label for="example-text-input" class="col-3 col-form-label">Websites</label>
+                                <div class="col-9">
+                                    <input class="form-control" type="url" placeholder="Enlace a tu web, blog..."
+                                        value="" id="example-tel-input">
+                                    <p>Link a tu blog, web personal, redes sociales...</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!--Colaboradores-->
+                        <div class="form-group light-blue">
+                            <label for="exampleInputEmail1">Colaboradores</label>
+
+
+                            <div class="row mb-2">
+                                <div class="col-12">
+                                    <p>Si trabajas con otros, puedes otorgarles permiso para editar este proyecto,
+                                        comunicarse con los
+                                        patrocinadores y coordinar la entrega de las recompensas.</p>
+                                </div>
+
+                                <!--Email-->
+                                <div class="col-6">
+                                    <input type="email" class="form-control form-control-lg"
+                                        #collaboratorEmail="ngModel" placeholder="Ingresa un email"
+                                        name="collaboratorEmail" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$"
+                                        [(ngModel)]="proyecto.collaborators[0].email">
+                                </div>
+                                <div class="alert alert-danger" role="alert"
+                                    *ngIf="collaboratorEmail.touched && !collaboratorEmail.valid">
+                                    <div *ngIf="!collaboratorEmail.valid">Ingresa un email correcto.</div>
+                                </div>
+                                <!--Fin email-->
+
+                                <div class="col-6">
+
+                                </div>
+                            </div>
+
+
+                            <div class="row">
+                                <div class="col-6">
+
+                                </div>
+                                <div class="col-6">
+                                    <button type="button" class="btn btn-dark float-sm-right">Añadir
+                                        colaborador</button>
+                                </div>
+                            </div>
+
+                        </div>
+                        <!--Fin colaboradores-->
+
+                        <br>
+                        <br>
+                        <br>
+
+                    </div>
+                    <!--Fin paso 4-->
+
                 </div>
+                <!--Fin acerca de ti (4)-->
+
+                <!--Cuenta (5)-->
                 <div class="tab-pane fade" id="v-pills-cuentaban" role="tabpanel"
                     aria-labelledby="v-pills-cuentaban-tab">
-                    <app-stepfive></app-stepfive>
+
+                    <!--Paso 5-->
+                    <div class="col-sm-12">
+                        <h1>Agrega una cuenta bancaria</h1>
+                        <p>Proporciona información adicional sobre tu persona y tus datos bancarios, si tu proyecto se
+                            financia con éxito.
+                        </p>
+
+
+
+                        <!--Correo confirm-->
+                        <div class="form-group light-blue">
+
+                            <div class="form-group row">
+                                <label for="example-text-input" class="col-3 col-form-label">Correo electrónico de
+                                    contacto</label>
+                                <div class="col-9">
+                                    <input class="form-control" type="email" placeholder="test@example.com"
+                                        id="example-search-input">
+                                </div>
+                            </div>
+                        </div>
+                        <!--Fin correo-->
+
+
+                        <div class="form-group light-blue">
+                            <div class="form-group row">
+                                <label for="example-text-input" class="col-3 col-form-label">Destinatario de los
+                                    fondos</label>
+                                <div class="col-9">
+                                    <select class="form-control custom-select">
+                                        <option value="1">Individual</option>
+                                        <option value="2">Empresa</option>
+                                    </select>
+                                    <p class="mt-1">Ingresa la información del individuo o entidad legal que
+                                        administra este proyecto.
+                                    </p>
+                                    <p class="mt-1">Si administras este proyecto como una entidad legal, algún
+                                        integrante de la
+                                        organización debe completar esta sección.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!--Cuenta bancaria-->
+                        <div class="form-group light-blue">
+
+                            <div class="form-group row">
+                                <label for="example-text-input" class="col-3 col-form-label">Cuenta bancaria</label>
+                                <div class="col-9">
+                                    <p class="mt-1">Agrega información de la cuenta bancaria perteneciente a la
+                                        persona o entidad que
+                                        administra el proyecto y recibe los fondos (si el proyecto se financia con
+                                        éxito).
+                                    </p>
+
+                                    <p class="mt-1">Para recibir fondos, esta cuenta debe ser una cuenta corriente
+                                        que admita
+                                        transferencias en
+                                        papel o electrónicas (no giros bancarios), depósitos directos y estar
+                                        ubicada en Alemania.</p>
+
+                                    <p class="mt-1">Ingresa esta información cuidadosamente y vuelve a verificarla
+                                        con tu banco. No se
+                                        podrá cambiar
+                                        una vez publicada y es posible que no podamos ayudarte si los fondos se
+                                        envían a la cuenta
+                                        incorrecta.</p>
+
+
+                                    <div class="row">
+                                        <div class="col-12">
+
+                                            <div class="input-group">
+                                                <span class="input-group-btn">
+                                                    <button class="btn btn-secondary" type="button">Nombre</button>
+                                                </span>
+                                                <input type="text" class="form-control" placeholder="Nombres">
+                                                <input type="text" class="form-control" placeholder="Apellidos">
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row mt-3">
+                                        <div class="col-12">
+                                            <div class="form-group row">
+                                                <label for="example-date-input" class="col-2 col-form-label">Fecha
+                                                    de nacimiento</label>
+                                                <div class="col-10">
+                                                    <input class="form-control" type="date" value=""
+                                                        id="example-date-input">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row mt-3">
+                                        <div class="col-12">
+                                            <div class="card">
+                                                <div class="card-block p-3">
+                                                    <div class="row">
+                                                        <div class="col-4">
+                                                            <p>Dirección de dueño</p>
+                                                        </div>
+                                                        <div class="col-8">
+                                                            <input type="text" class="form-control"
+                                                                placeholder="Dirección">
+                                                            <input type="text" class="form-control"
+                                                                placeholder="Ciudad">
+                                                            <input type="text" class="form-control"
+                                                                placeholder="Codigo postal/ZIP code">
+                                                            <input type="text" class="form-control" placeholder="Perú">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <br>
+                                </div>
+                            </div>
+                        </div>
+                        <!--Fin cuenta bancaria-->
+
+
+                    </div>
+                    <!--Fin paso 5-->
+
                 </div>
+                <!--Fin cuenta (5)-->
+
             </div>
         </div>
+        
+        
     </div>
 </div>

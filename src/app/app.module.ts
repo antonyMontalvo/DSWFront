@@ -14,11 +14,6 @@ import { HomeComponent } from './components/body/home/home.component';
 import { ProjectServices } from './services/createproject/project.service';
 import { ProjectComponent } from './components/body/project/project.component';
 import { EndprojectComponent } from './components/body/endproject/endproject.component';
-import { SteponeComponent } from './components/body/endproject/stepone/stepone.component';
-import { SteptwoComponent } from './components/body/endproject/steptwo/steptwo.component';
-import { StepthreeComponent } from './components/body/endproject/stepthree/stepthree.component';
-import { StepfourComponent } from './components/body/endproject/stepfour/stepfour.component';
-import { StepfiveComponent } from './components/body/endproject/stepfive/stepfive.component';
 import { ProfileComponent } from './components/body/profile/profile.component';
 import { ProfileconComponent } from './components/body/profileconfig/profileconfig.component';
 import { AboutComponent } from './components/body/about/about.component';
@@ -32,6 +27,7 @@ import { UserprofileServices } from './services/userprofile/userprofile.service'
 import { AdminComponent } from './components/body/admin/admin.component';
 import { HomeprojectsServices } from './services/homeprojects/homeprojects.service';
 import { ProjectscategoryServices } from './services/projectscategory/projectscategory.service';
+import { EndprojectServices } from './services/endproject/endproject.service';
 
 
 
@@ -44,11 +40,6 @@ import { ProjectscategoryServices } from './services/projectscategory/projectsca
     HomeComponent,
     ProjectComponent,
     EndprojectComponent,
-    SteponeComponent,
-    SteptwoComponent,
-    StepthreeComponent,
-    StepfourComponent,
-    StepfiveComponent,
     ProfileComponent,
     ProfileconComponent,
     AboutComponent,
@@ -77,7 +68,8 @@ import { ProjectscategoryServices } from './services/projectscategory/projectsca
     StartprojectServices, // Crear proyecto (4 datos)
     UserprofileServices, // Traer todos los proyectos de un usuario y todo lo relacionado a él
     HomeprojectsServices, // Todos los proyectos
-    ProjectscategoryServices // Proyectos por categoria
+    ProjectscategoryServices, // Proyectos por categoria
+    EndprojectServices
   ],
   
   bootstrap: [AppComponent]

@@ -1,8 +1,10 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Router } from '@angular/router';
-import { BehaviorSubject } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
 import { endProjectI } from 'src/app/models/endproject/project';
+import { JwtResponseEndProjectI } from 'src/app/models/endproject/jwt-response-endp';
+import { tap } from 'rxjs/operators';
 
 @Injectable()
 
@@ -16,7 +18,7 @@ export class EndprojectServices { // Finalizar proyecto con todos los datos "act
         
     }
 
-    endProject(project: endProjectI){
+    endProject(project: endProjectI): Observable<JwtResponseEndProjectI>{
         const httpOptions = {
             headers: new HttpHeaders({
               'Content-Type':  'application/json',
@@ -24,7 +26,14 @@ export class EndprojectServices { // Finalizar proyecto con todos los datos "act
             })
         };
 
-        return this.httpClient.put(`${this.AUTH_SERVER}/proyects`, project);
+        return this.httpClient.put<JwtResponseEndProjectI>(`${this.AUTH_SERVER}/proyects/developer`, project, httpOptions ).pipe(tap(
+            (res: JwtResponseEndProjectI) => {
+                console.log(res.message);
+                if (res) {
+                    console.log('Actualizado.');
+                }
+            })
+        );
 
     }
 
