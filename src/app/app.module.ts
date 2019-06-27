@@ -7,6 +7,12 @@ import { AppRoutingModule } from './app-routing.module';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 
+// Cloudinary modules
+import {CloudinaryModule, CloudinaryConfiguration, provideCloudinary} from '@cloudinary/angular-5.x';
+import * as cloudinary from 'cloudinary-core';
+import {FileUploadModule} from 'ng2-file-upload';
+import { CloudinarySettings } from './models/uploadimage/settings';
+
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { FooterComponent } from './components/footer/footer.component';
@@ -33,6 +39,7 @@ import { DataprojectServices } from './services/dataproject/dataproject.service'
 
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -54,7 +61,9 @@ import { DataprojectServices } from './services/dataproject/dataproject.service'
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    CloudinaryModule.forRoot(cloudinary, CloudinarySettings),
+    FileUploadModule
   ],
   providers: [
     Config,

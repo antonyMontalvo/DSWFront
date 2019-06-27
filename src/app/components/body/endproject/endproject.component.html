@@ -80,7 +80,7 @@
                         <div class="form-group light-blue">
                             <label for="projectTitle">Título del proyecto {{proyecto.title}}</label>
                             <input type="text" #projectTitle="ngModel" name="title" class="form-control form-control-lg"
-                                placeholder="Titulo" pattern="[a-zA-Z0-9\s]+" [(ngModel)]="proyecto.title">
+                                placeholder="Titulo" pattern="[a-zA-Z0-9\s\.,!-:']+" [(ngModel)]="proyecto.title">
                             <p class="form-text text-muted">
                                 Escribe un título claro y conciso que ayude a las personas a comprender rápidamente
                                 la esencia de tu
@@ -101,7 +101,7 @@
                         <div class="form-group light-blue">
                             <label for="projectSdesc">Descripción corta</label>
                             <textarea #projectSdesc="ngModel" name="shortDescription"
-                                class="form-control form-control-lg" rows="3" pattern="[a-zA-Z0-9\s]+"
+                                class="form-control form-control-lg" rows="3" pattern="[a-zA-Z0-9\s\.,!-:']+"
                                 [(ngModel)]="proyecto.shortDescription"></textarea>
                             <p id="projectSdesc" class="form-text text-muted">
                                 Ofrece una pequeña descripción de lo que estás haciendo.
@@ -297,7 +297,7 @@
                                         imágenes para
                                         mostrarles de qué se trata tu proyecto y cómo son las recompensas.</p>
                                     <textarea #projectLdesc="ngModel" name="longDescriptions" class="form-control"
-                                        rows="11" pattern="[a-zA-Z0-9\s]+"
+                                        rows="11" pattern="[a-zA-Z0-9\s\.,!-:']+"
                                         [(ngModel)]="proyecto.longDescriptions[0].description">
                                     </textarea>
                                 </div>
@@ -322,7 +322,7 @@
                                         proyecto y cómo planeas
                                         superarlos para completarlo.</p>
                                     <textarea #projectRisks="ngModel" name="challenges" class="form-control" rows="7"
-                                        pattern="[a-zA-Z0-9\s]+" [(ngModel)]="proyecto.challenges"></textarea>
+                                        pattern="[a-zA-Z0-9\s\.,!-:']+" [(ngModel)]="proyecto.challenges"></textarea>
                                     <p class="mt1 my-2">Algunos de los riesgos y desafíos comunes que quizás desees
                                         abordar son el
                                         presupuesto, los plazos para las recompensas y para el proyecto en sí, el
@@ -373,7 +373,7 @@
                                         <label for="rewardTitle" class="col-3 col-form-label">Titulo</label>
                                         <div class="col-9">
                                             <input type="text" #rewardTitle="ngModel" name="title" class="form-control"
-                                                placeholder="Ejm: Edición limitada firmada" pattern="[a-zA-Z0-9\s]+"
+                                                placeholder="Ejm: Edición limitada firmada" pattern="[a-zA-Z0-9\s\.,!-:']+"
                                                 [(ngModel)]="proyecto.reward[0].title">
                                         </div>
                                     </div>
@@ -409,7 +409,7 @@
                                         <label for="longDesc" class="col-3 col-form-label">Descripción</label>
                                         <div class="col-9">
                                             <textarea type="text" #longDesc="ngModel" name="description"
-                                                class="form-control" rows="6" pattern="[a-zA-Z0-9\s]+"
+                                                class="form-control" rows="6" pattern="[a-zA-Z0-9\s\.,!-:']+"
                                                 [(ngModel)]="proyecto.reward[0].description"></textarea>
                                         </div>
                                     </div>

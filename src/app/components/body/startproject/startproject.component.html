@@ -15,7 +15,7 @@
                 <div class="form-group my-3">
                     <label for="projectTitle">Título del proyecto</label>
                     <input type="text" #projectTitle="ngModel" name="title" class="form-control form-control-lg"
-                        placeholder="Titulo" pattern="[a-zA-Z0-9\s]+" ngModel>
+                        placeholder="Titulo" pattern="[a-zA-Z0-9\s\.,!-:']+" ngModel>
                     <p class="form-text text-muted">
                         Escribe un título claro y conciso que ayude a las personas a comprender rápidamente la esencia
                         de tu
@@ -24,7 +24,7 @@
                 </div>
 
                 <div class="alert alert-danger" role="alert" *ngIf="projectTitle.touched && !projectTitle.valid">
-                    <div *ngIf="!projectTitle.valid">No se permiten caracteres especiales como /, -, $, !, etc.</div>
+                    <div *ngIf="!projectTitle.valid">No se permiten caracteres especiales como $,% etc.</div>
                 </div>
                 <!--Fin titulo-->
 
@@ -32,14 +32,14 @@
                 <div class="form-group my-4">
                     <label for="projectSdesc">Descripción corta</label>
                     <textarea #projectSdesc="ngModel" name="shortDescription" class="form-control form-control-lg" rows="3"
-                        pattern="[a-zA-Z0-9\s]+" ngModel></textarea>
+                        pattern="[a-zA-Z0-9\s.,!-:']+" ngModel></textarea>
                     <p id="projectSdesc" class="form-text text-muted">
                         Ofrece una pequeña descripción de lo que estás haciendo.
                     </p>
                 </div>
 
                 <div class="alert alert-danger" role="alert" *ngIf="projectSdesc.touched && !projectSdesc.valid">
-                    <div *ngIf="!projectSdesc.valid">No se permiten caracteres especiales como /, -, $, !, etc.</div>
+                    <div *ngIf="!projectSdesc.valid">No se permiten caracteres especiales como $,%, etc.</div>
                 </div>
                 <!--Fin descripcion corta-->
 
