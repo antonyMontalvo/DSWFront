@@ -35,7 +35,11 @@ export class EndprojectComponent {
             description: '',
             image: ''
         }],
-        payMethod: {}
+        paymentAccount: {
+            identification_card: '',
+            credit_card: '',
+            owner_name: ''
+        }
     };
 
     constructor(private authService: AuthService, private router: Router, private route: ActivatedRoute
@@ -61,8 +65,8 @@ export class EndprojectComponent {
 
         this.endprojectService.endProject(this.proyecto).subscribe(res => {
             console.log('Editado con éxito.');
-            console.log(res);
-            console.log(res.message)
+            console.log(res.message);
+            this.router.navigateByUrl('/');
         });
         /*if (form.valid) {
             this.endprojectService.endProject(form.value).subscribe(res => {

@@ -29,7 +29,7 @@
                 </a>
             </div>
             <br>
-            <button type="button" (click)='onEndProject()' class="btn btn-lg btn-primary btn-block my-2">Crear</button>
+            <button type="button" (click)='onEndProject()' class="btn btn-lg btn-warning btn-block my-2"><h4>Crear</h4></button>
         </div>
         <div class="col-9">
             <div class="tab-content" id="v-pills-tabContent">
@@ -121,7 +121,7 @@
                             <div class="row">
                                 <div class="col-6">
                                     <select name="category" id="categorySelectBox" class="form-control custom-select"
-                                    [(ngModel)]="proyecto.category">
+                                        [(ngModel)]="proyecto.category">
 
                                         <option value="Arte">Arte</option>
 
@@ -164,7 +164,7 @@
                             <label for="projectUbication">Ubicación del proyecto</label>
                             <div class="input-group  input-group-lg">
                                 <input type="text" #projectUbication="ngModel" name="ubication" class="form-control"
-                                    placeholder="Empieza a escribir tu ubicación..." pattern="[a-zA-Z\s,]+" 
+                                    placeholder="Empieza a escribir tu ubicación..." pattern="[a-zA-Z\s,]+"
                                     [(ngModel)]="proyecto.ubication">
                             </div>
                         </div>
@@ -186,7 +186,7 @@
                                 <div class="form-group my-4">
                                     <label for="projectStartDate">Fecha de inicio</label>
                                     <input type="date" #projectStatDate="ngModel" name="startDate"
-                                        class="form-control form-control-lg" value=""  [(ngModel)]="proyecto.startDate">
+                                        class="form-control form-control-lg" value="" [(ngModel)]="proyecto.startDate">
                                     <p id="projectStartDate" class="form-text text-muted">
                                         Fecha de inicio del proyecto.
                                     </p>
@@ -199,7 +199,7 @@
                                 <div class="form-group my-4">
                                     <label for="projectEndDate">Fecha de finalizacion</label>
                                     <input type="date" #projectStatDate="ngModel" name="endDate"
-                                        class="form-control form-control-lg" value=""  [(ngModel)]="proyecto.endDate">
+                                        class="form-control form-control-lg" value="" [(ngModel)]="proyecto.endDate">
                                     <p id="projectEndDate" class="form-text text-muted">
                                         Fecha de finalizacion del proyecto.
                                     </p>
@@ -297,7 +297,8 @@
                                         imágenes para
                                         mostrarles de qué se trata tu proyecto y cómo son las recompensas.</p>
                                     <textarea #projectLdesc="ngModel" name="longDescriptions" class="form-control"
-                                        rows="11" pattern="[a-zA-Z0-9\s]+" [(ngModel)]="proyecto.longDescriptions[0].description">
+                                        rows="11" pattern="[a-zA-Z0-9\s]+"
+                                        [(ngModel)]="proyecto.longDescriptions[0].description">
                                     </textarea>
                                 </div>
                             </div>
@@ -390,7 +391,8 @@
                                             contribución</label>
                                         <div class="col-9">
                                             <input type="text" #min_amount="ngModel" name="min_amount"
-                                                class="form-control" pattern="[0-9]+" [(ngModel)]="proyecto.reward[0].min_amount">
+                                                class="form-control" pattern="[0-9]+"
+                                                [(ngModel)]="proyecto.reward[0].min_amount">
                                         </div>
                                     </div>
 
@@ -418,25 +420,6 @@
                                             $, !, etc.</div>
                                     </div>
                                     <!--Fin descripción-->
-
-                                    <!--<div class="form-group row">
-                                                <label for="example-url-input" class="col-3 col-form-label">Entrega&nbsp;aproximada</label>
-                                                <div class="col-9">
-                                                    <input class="form-control" type="text" placeholder="YYYY/MM/DD" value=""
-                                                        id="example-url-input">
-                                                </div>
-                                            </div>
-                        
-                                            <div class="form-group row">
-                                                <label for="example-tel-input" class="col-3 col-form-label">Cantidad de la recompensa</label>
-                                                <div class="col-9">
-                                                    <select class="form-control custom-select">
-                                                        <option value="1">Ilimitada</option>
-                                                        <option value="2">50+</option>
-                                                        <option value="3">100+</option>
-                                                    </select>
-                                                </div>
-                                            </div>-->
 
                                 </div>
                             </div>
@@ -507,7 +490,8 @@
                                     <input type="email" class="form-control form-control-lg"
                                         #collaboratorEmail="ngModel" placeholder="Ingresa un email"
                                         name="collaboratorEmail" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$"
-                                        ngModel> <!--Cambialo acá gaaa-->
+                                        ngModel>
+                                    <!--Cambialo acá gaaa-->
                                 </div>
                                 <div class="alert alert-danger" role="alert"
                                     *ngIf="collaboratorEmail.touched && !collaboratorEmail.valid">
@@ -555,43 +539,6 @@
                             financia con éxito.
                         </p>
 
-
-
-                        <!--Correo confirm-->
-                        <div class="form-group light-blue">
-
-                            <div class="form-group row">
-                                <label for="example-text-input" class="col-3 col-form-label">Correo electrónico de
-                                    contacto</label>
-                                <div class="col-9">
-                                    <input class="form-control" type="email" placeholder="test@example.com"
-                                        id="example-search-input">
-                                </div>
-                            </div>
-                        </div>
-                        <!--Fin correo-->
-
-
-                        <div class="form-group light-blue">
-                            <div class="form-group row">
-                                <label for="example-text-input" class="col-3 col-form-label">Destinatario de los
-                                    fondos</label>
-                                <div class="col-9">
-                                    <select class="form-control custom-select">
-                                        <option value="1">Individual</option>
-                                        <option value="2">Empresa</option>
-                                    </select>
-                                    <p class="mt-1">Ingresa la información del individuo o entidad legal que
-                                        administra este proyecto.
-                                    </p>
-                                    <p class="mt-1">Si administras este proyecto como una entidad legal, algún
-                                        integrante de la
-                                        organización debe completar esta sección.
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-
                         <!--Cuenta bancaria-->
                         <div class="form-group light-blue">
 
@@ -608,7 +555,7 @@
                                         que admita
                                         transferencias en
                                         papel o electrónicas (no giros bancarios), depósitos directos y estar
-                                        ubicada en Alemania.</p>
+                                        ubicada en tu lugar de residencia.</p>
 
                                     <p class="mt-1">Ingresa esta información cuidadosamente y vuelve a verificarla
                                         con tu banco. No se
@@ -618,53 +565,53 @@
                                         incorrecta.</p>
 
 
-                                    <div class="row">
-                                        <div class="col-12">
 
-                                            <div class="input-group">
-                                                <span class="input-group-btn">
-                                                    <button class="btn btn-secondary" type="button">Nombre</button>
-                                                </span>
-                                                <input type="text" class="form-control" placeholder="Nombres">
-                                                <input type="text" class="form-control" placeholder="Apellidos">
-                                            </div>
+                                    <div class="form-group row">
+                                        <label for="example-text-input" class="col-3 col-form-label">Nombre del
+                                            dueño</label>
+                                        <div class="col-9">
+                                            <input type="text" #cardOwner="ngModel" name="owner_name"
+                                                class="form-control" placeholder="Nombres y apellidos..."
+                                                pattern="[a-zA-Z0-9\s]+" [(ngModel)]="proyecto.paymentAccount.owner_name">
                                         </div>
                                     </div>
 
-                                    <div class="row mt-3">
-                                        <div class="col-12">
-                                            <div class="form-group row">
-                                                <label for="example-date-input" class="col-2 col-form-label">Fecha
-                                                    de nacimiento</label>
-                                                <div class="col-10">
-                                                    <input class="form-control" type="date" value=""
-                                                        id="example-date-input">
-                                                </div>
-                                            </div>
+                                    <div class="alert alert-danger" role="alert"
+                                        *ngIf="cardOwner.touched && !cardOwner.valid">
+                                        <div *ngIf="!cardOwner.valid">No es posible ingresar caracteres especiales como
+                                            !, $, etc.</div>
+                                    </div>
+
+                                    <div class="form-group row">
+                                        <label for="example-text-input" class="col-3 col-form-label">Número de
+                                            tarjeta</label>
+                                        <div class="col-9">
+                                            <input type="text" #cardNumber="ngModel" name="credit_card"
+                                                class="form-control" placeholder="Número de tarjeta" pattern="[0-9]+"
+                                                [(ngModel)]="proyecto.paymentAccount.credit_card">
                                         </div>
                                     </div>
 
-                                    <div class="row mt-3">
-                                        <div class="col-12">
-                                            <div class="card">
-                                                <div class="card-block p-3">
-                                                    <div class="row">
-                                                        <div class="col-4">
-                                                            <p>Dirección de dueño</p>
-                                                        </div>
-                                                        <div class="col-8">
-                                                            <input type="text" class="form-control"
-                                                                placeholder="Dirección">
-                                                            <input type="text" class="form-control"
-                                                                placeholder="Ciudad">
-                                                            <input type="text" class="form-control"
-                                                                placeholder="Codigo postal/ZIP code">
-                                                            <input type="text" class="form-control" placeholder="Perú">
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
+                                    <div class="alert alert-danger" role="alert"
+                                        *ngIf="cardNumber.touched && !cardNumber.valid">
+                                        <div *ngIf="!cardNumber.valid">Sólo se permite ingresar números, corrige el
+                                            dato!</div>
+                                    </div>
+
+                                    <div class="form-group row">
+                                        <label for="example-text-input" class="col-3 col-form-label">Email asociado a la
+                                            cuenta</label>
+                                        <div class="col-9">
+                                            <input type="text" #cardEmail="ngModel" name="identification_card"
+                                                class="form-control" placeholder="Email de cuenta"
+                                                pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$"
+                                                [(ngModel)]="proyecto.paymentAccount.identification_card">
                                         </div>
+                                    </div>
+
+                                    <div class="alert alert-danger" role="alert"
+                                        *ngIf="cardEmail.touched && !cardEmail.valid">
+                                        <div *ngIf="!cardEmail.valid">Ingresa un email correcto.</div>
                                     </div>
 
                                     <br>
@@ -682,7 +629,7 @@
 
             </div>
         </div>
-        
-        
+
+
     </div>
 </div>

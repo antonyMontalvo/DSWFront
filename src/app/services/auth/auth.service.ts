@@ -42,7 +42,7 @@ export class AuthService {
                     console.log(res);
                     console.log(res.message.token);
 
-                    if (res.status == '200') {
+                    if (res.status == '201') {
                         //guardar token
                         this.saveToken(res.message.token);
                         this.saveUserData(res.message.userName, res.message.userEmail, res.message.userFirstName,

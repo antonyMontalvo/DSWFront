@@ -29,8 +29,7 @@
                 <!--Card desc-->
                 <div class="col-lg-4">
                     <h4 class="display-8"><a routerLink="/project/{{proyecto._id}}">{{proyecto.title}}</a></h4>
-                    <p class="text-muted">Por <strong><a routerLink="/project/{{proyecto._id}}"
-                                class="text-muted">{{proyecto.autor}}</a></strong>
+                    
                         <p>{{proyecto.short_desc}}</p>
 
                         <br />
@@ -112,9 +111,7 @@
                         <img class="card-img-top" src="{{proyecto.image.imageURL}}" alt="Card image cap">
                         <div class="card-body">
                             <h6 class="card-title"><a routerLink="/project/{{proyecto._id}}">{{proyecto.title}}</a></h6>
-                            <p class="text-muted">Por <strong><a routerLink="/project/{{proyecto._id}}"
-                                        class="text-muted">{{proyecto.autor}}</a></strong>
-                            </p>
+                            
                             <p class="card-text">{{proyecto.short_desc}}</p>
                             <div class="progress">
                                 <div class="progress-bar" role="progressbar" [ngStyle]="{'width':proyecto.percentage+'%'}" aria-valuenow="40"

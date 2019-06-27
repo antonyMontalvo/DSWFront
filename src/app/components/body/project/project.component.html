@@ -8,7 +8,8 @@
 
                         <!--Avatar de usuario (el que visualiza)-->
                         <div class="col-sm-2">
-                            <div class="avatar-me-wrapper"><span class="avatar-me">A</span></div>
+                            <div class="avatar-me-wrapper"><span class="avatar-me"><img class="img-fluid" src="{{user_data.imageProfile}}"
+                                class="img-fluid" /></span></div>
                         </div>
                         <!--Fin avatar-->
 
@@ -36,7 +37,7 @@
                             <br />
                             <br />
 
-                            <iframe width="100%" height="350" src="https://www.youtube.com/embed/he65UuR7qO0"
+                            <iframe width="100%" height="350" src="https://www.youtube.com/embed/PkwX3G_WRF8"
                                 frameborder="0" allowfullscreen></iframe>
                         </div>
                         <!--Fin primera parte-->
@@ -53,16 +54,7 @@
                                     <a class="nav-link active" href="#">Resumen</a>
                                 </li>
 
-                                <!--Tags-->
-                                <li class="nav-item" style="width: 50%">
-
-                                    <span class="badge badge-pill badge-info float-sm-right"
-                                        style="margin-left: 5px;margin-top: 5px;">Technology</span>
-                                    <span class="badge badge-pill badge-danger float-sm-right"
-                                        style="margin-left: 0px;margin-top: 5px;">Prototype Stage</span>
-
-                                </li>
-                                <!--Fin Tags-->
+                               
 
                             </ul>
                         </div>
@@ -75,8 +67,8 @@
 
                     <div class="row">
                         <div class="col-md-4">
-                            <a href=""><img class="img-fluid" src="https://unsplash.it/310/210?image=1"
-                                    class="img-fluid" /></a>
+                            <img class="img-fluid" src="https://unsplash.it/310/210?image=1"
+                                    class="img-fluid" />
                         </div>
                         <div class="col-md-8">
                             <p>{{proyecto.short_desc}}</p>
@@ -92,13 +84,10 @@
                             <a class="nav-link active" data-toggle="tab" active href="#home" role="tab">Historia</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" data-toggle="tab" href="#updates" role="tab">Actualizaciones (3)</a>
+                            <a class="nav-link" data-toggle="tab" href="#extra" role="tab">Riesgos</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" data-toggle="tab" href="#extra" role="tab">Extra (40)</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link disabled" href="#backers" role="tab">Dashers (797)</a>
+                            <a class="nav-link disabled" href="#backers" role="tab">Dashers ({{proyecto.sponsors.length}})</a>
                         </li>
                     </ul>
                     <!--Fin tabList-->
@@ -138,40 +127,7 @@
                             {{proyecto.long_desc[0].description}}
                         </div>
 
-                        <div class="tab-pane" id="updates" role="tabpanel">
-                            <div class="card mb-4">
-                                <div class="card-block">
-                                    <h5 class="card-title">We made it!!!</h5>
-                                    <h6 class="card-subtitle mb-2 text-muted">March 16</h6>
-                                    <p class="card-text"><b>We did it! In less than 3 days (52 hours to be exact!) we
-                                            hit our minimum funding goal.</b> I seriously can’t believe it. Nunc id
-                                        hendrerit eros. In porta, urna sed condimentum aliquam, felis orci vestibulum
-                                        odio, et dictum risus libero at nisi.</p>
-                                    <a href="#" class="card-link">Read more</a>
-                                </div>
-                            </div>
-                            <div class="card mb-4">
-                                <div class="card-block">
-                                    <h5 class="card-title">The Mid-Campaign March + 300 Backers!</h5>
-                                    <h6 class="card-subtitle mb-2 text-muted">March 7</h6>
-                                    <p class="card-text">Within the last 24 hours, our campaign has surpassed <b>300
-                                            backers and $35,000</b>! THANK YOU to everyone who has graciously donated to
-                                        our campaign over the past two weeks....</p>
-                                    <a href="#" class="card-link">Read more</a>
-                                </div>
-                            </div>
-                            <div class="card">
-                                <div class="card-block">
-                                    <h5 class="card-title">Wow! 50% funded... in the first 9 hours???</h5>
-                                    <h6 class="card-subtitle mb-2 text-muted">March 7</h6>
-                                    <p class="card-text">Within the last 9 hours, our campaign has made 50% of what we
-                                        set out to reach. Thanks so much guys!!! Nunc id hendrerit eros. In porta, urna
-                                        sed condimentum aliquam, felis orci vestibulum odio, et dictum risus libero at
-                                        nisi.</p>
-                                    <a href="#" class="card-link">Read more</a>
-                                </div>
-                            </div>
-                        </div>
+                        
 
                         <div class="tab-pane" id="extra" role="tabpanel">
                             <p><strong>I'm gonna build me an airport, put my name on it. Why, Michael? So you can fly
@@ -220,9 +176,8 @@
                                             <br />
                                         </div>
                                         <div class="col-sm-6">
-                                            <h4 class="mb-0"><strong>{{proyecto.autor}}</strong></h4>
-                                            <p class="mt-0 mb-0">La Victoria, Lima</p>
-                                            <p class="mt-0 mb-0">5 proyectos</p>
+                                            <h4 class="mb-0"><strong>{{user_data.firstName + ' ' + user_data.lastName}}</strong></h4>
+                                            <p class="mt-0 mb-0">{{user_data.biography}}</p>
                                             <br />
                                             <br />
                                         </div>

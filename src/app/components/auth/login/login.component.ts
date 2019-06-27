@@ -27,12 +27,15 @@ export class LoginComponent implements OnInit {
         
         if (form.valid) { // Valido si todos los cuadros estan completos con los datos requeridos
             this.authService.login(form.value).subscribe(res => {
-                this.router.navigateByUrl('/');
+                if(res.status != '201'){
+                    this.onIsWrongData();
+                }else{
+                    this.router.navigateByUrl('/');
+                }
+                
 
                 // Utilizando el status para mostrar mensaje de email o password incorrectos.
-                if(res.status != '200'){
-                    this.onIsWrongData();
-                }
+               
 
             });
 
