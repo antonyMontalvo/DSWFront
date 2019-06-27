@@ -1,7 +1,7 @@
 <div class="container-fluid my-5">
-    <h3>Nombre de categoría</h3>
+    <h3>{{categoria}}</h3>
     <h5>
-        <p class="lead">XXX proyectos en está categoría</p>
+        <p class="lead">{{proyectos.length}} proyectos en está categoría</p>
     </h5>
     <hr>
     <div class="row">
@@ -12,11 +12,11 @@
                     <div class="col-md-4 col-lg-3 mb-5 my-2">
                         <div class="card h-100" style="width: 12rem;">
                             <!--style="width: 18rem;" para que quepa todo-->
-                            <img class="card-img-top" src="{{proyecto.image_url}}" alt="Card image cap">
+                            <img class="card-img-top" src="{{proyecto.image.imageURL}}" alt="Card image cap">
                             <div class="card-body">
-                                <h6 class="card-title"><a routerLink="/project/{{proyecto.id}}">{{proyecto.titulo}}</a>
+                                <h6 class="card-title"><a routerLink="/project/{{proyecto._id}}">{{proyecto.title}}</a>
                                 </h6>
-                                <p class="text-muted">Por <strong><a routerLink="/project/{{proyecto.id}}"
+                                <p class="text-muted">Por <strong><a routerLink="/project/{{proyecto._id}}"
                                             class="text-muted">{{proyecto.autor}}</a></strong>
                                 </p>
                                 <p class="card-text">{{proyecto.short_desc}}</p>
@@ -24,7 +24,7 @@
                                     <div class="progress-bar" role="progressbar" style="width: 76%" aria-valuenow="76"
                                         aria-valuemin="0" aria-valuemax="100"></div>
                                 </div>
-                                <p class="mb-1">76% patrocinado</p>
+                                <p class="mb-1">{{proyecto.percentage}}% patrocinado</p>
                             </div>
 
                         </div>
@@ -37,21 +37,21 @@
             <h4>Categorías</h4>
             <hr>
             <ul class="list-group my-4">
-                    <li class="list-group-item"><a routerLink="/category">Arte</a></li>
-                    <li class="list-group-item"><a routerLink="/category">Comics</a></li>
-                    <li class="list-group-item"><a routerLink="/category">Hazlo tu mismo</a></li>
-                    <li class="list-group-item"><a routerLink="/category">Baile</a></li>
-                    <li class="list-group-item"><a routerLink="/category">Diseño</a></li>
-                    <li class="list-group-item"><a routerLink="/category">Moda</a></li>
-                    <li class="list-group-item"><a routerLink="/category">Peliculas y video</a></li>
-                    <li class="list-group-item"><a routerLink="/category">Comida</a></li>
-                    <li class="list-group-item"><a routerLink="/category">Juegos</a></li>
-                    <li class="list-group-item"><a routerLink="/category">Periodismo</a></li>
-                    <li class="list-group-item"><a routerLink="/category">Música</a></li>
-                    <li class="list-group-item"><a routerLink="/category">Fotografía</a></li>
-                    <li class="list-group-item"><a routerLink="/category">Publicaciones</a></li>
-                    <li class="list-group-item"><a routerLink="/category">Tecnología</a></li>
-                    <li class="list-group-item"><a routerLink="/category">Teatro</a></li>
+                    <li class="list-group-item"><a (click)="getCategory('Arte')" routerLink="/category/Arte">Arte</a></li>
+                    <li class="list-group-item"><a (click)="getCategory('Comics')" routerLink="/category/Comics">Comics</a></li>
+                    <li class="list-group-item"><a (click)="getCategory('Solo')" routerLink="/category/Solo">Hazlo tu mismo</a></li>
+                    <li class="list-group-item"><a (click)="getCategory('Baile')" routerLink="/category/Baile">Baile</a></li>
+                    <li class="list-group-item"><a (click)="getCategory('Diseño')" routerLink="/category/Diseño">Diseño</a></li>
+                    <li class="list-group-item"><a (click)="getCategory('Moda')" routerLink="/category/Moda">Moda</a></li>
+                    <li class="list-group-item"><a (click)="getCategory('Peliculas')" routerLink="/category/Peliculas">Peliculas y video</a></li>
+                    <li class="list-group-item"><a (click)="getCategory('Comida')" routerLink="/category/Comida">Comida</a></li>
+                    <li class="list-group-item"><a (click)="getCategory('Juegos')" routerLink="/category/Juegos">Juegos</a></li>
+                    <li class="list-group-item"><a (click)="getCategory('Periodismo')" routerLink="/category/Periodismo">Periodismo</a></li>
+                    <li class="list-group-item"><a (click)="getCategory('Musica')" routerLink="/category/Musica">Música</a></li>
+                    <li class="list-group-item"><a (click)="getCategory('Fotografia')" routerLink="/category/Fotografia">Fotografía</a></li>
+                    <li class="list-group-item"><a (click)="getCategory('Publicaciones')" routerLink="/category/Publicaciones">Publicaciones</a></li>
+                    <li class="list-group-item"><a (click)="getCategory('Tecnologia')" routerLink="/category/Tecnologia">Tecnología</a></li>
+                    <li class="list-group-item"><a (click)="getCategory('Teatro')" routerLink="/category/Teatro">Teatro</a></li>
 
             </ul>
         </div>

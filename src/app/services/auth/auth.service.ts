@@ -78,7 +78,7 @@ export class AuthService {
     }
 
     private saveUserData(userName: string, userEmail: string, userFirstName: string, userLastName: string,
-        userSurName: string, userPhoto: string) {
+        userSurName: string, userPhoto: any) {
 
         //Datos de usuario
         localStorage.setItem("USER", userName);
@@ -86,7 +86,7 @@ export class AuthService {
         localStorage.setItem("FIRST_NAME", userFirstName);
         localStorage.setItem("LAST_NAME", userLastName);
         localStorage.setItem("SUR_NAME", userSurName);
-        localStorage.setItem("PHOTO_URL", userPhoto);
+        localStorage.setItem("PHOTO_URL", userPhoto.imageURL);
 
     }
 
@@ -154,6 +154,7 @@ export class AuthService {
             firstName: localStorage.getItem("FIRST_NAME"),
             lastName: localStorage.getItem("LAST_NAME"),
             email: localStorage.getItem("EMAIL"),
+            imageProfile: localStorage.getItem("PHOTO_URL"),
             biography: 'Test biography.'
         }
 

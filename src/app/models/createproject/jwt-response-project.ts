@@ -1,5 +1,3 @@
-import { longStackSupport } from 'q';
-
 export interface JwtResponseProject {
     message: {
         monetary_goal: number,

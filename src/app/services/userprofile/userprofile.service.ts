@@ -32,7 +32,7 @@ export class UserprofileServices {
             })
         };
 
-        return this.httpClient.get<JwtResponseMyProjects>(`${this.AUTH_SERVER}/proyects/all`, httpOptions).pipe(tap(
+        return this.httpClient.get<JwtResponseMyProjects>(`${this.AUTH_SERVER}/users/proyect`, httpOptions).pipe(tap(
                 (res: JwtResponseMyProjects) => {
                     console.log(res.message);
                     console.log(this.getToken());

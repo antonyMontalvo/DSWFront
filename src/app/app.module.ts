@@ -30,6 +30,8 @@ import { StartprojectComponent } from './components/body/startproject/startproje
 import { StartprojectServices} from './services/createproject/startproject.service';
 import { UserprofileServices } from './services/userprofile/userprofile.service';
 import { AdminComponent } from './components/body/admin/admin.component';
+import { HomeprojectsServices } from './services/homeprojects/homeprojects.service';
+import { ProjectscategoryServices } from './services/projectscategory/projectscategory.service';
 
 
 
@@ -69,10 +71,13 @@ import { AdminComponent } from './components/body/admin/admin.component';
       useClass: CustomHttpInterceptor,
       multi: true
     },
+    
     ProjectServices,
-    AuthService,
-    StartprojectServices,
-    UserprofileServices
+    AuthService, // Login - Register
+    StartprojectServices, // Crear proyecto (4 datos)
+    UserprofileServices, // Traer todos los proyectos de un usuario y todo lo relacionado a él
+    HomeprojectsServices, // Todos los proyectos
+    ProjectscategoryServices // Proyectos por categoria
   ],
   
   bootstrap: [AppComponent]

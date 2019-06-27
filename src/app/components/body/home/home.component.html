@@ -17,6 +17,7 @@
         </div>
         <!--Fin liston-->
 
+       
         <ng-container *ngFor="let proyecto of proyectos">
             <div class="row align-items-center my-5" *ngIf="proyecto.rating == 1">
 
@@ -27,8 +28,8 @@
 
                 <!--Card desc-->
                 <div class="col-lg-4">
-                    <h4 class="display-8"><a routerLink="/project/{{proyecto.id}}">{{proyecto.title}}</a></h4>
-                    <p class="text-muted">Por <strong><a routerLink="/project/{{proyecto.id}}"
+                    <h4 class="display-8"><a routerLink="/project/{{proyecto._id}}">{{proyecto.title}}</a></h4>
+                    <p class="text-muted">Por <strong><a routerLink="/project/{{proyecto._id}}"
                                 class="text-muted">{{proyecto.autor}}</a></strong>
                         <p>{{proyecto.short_desc}}</p>
 
@@ -37,7 +38,7 @@
                             <div class="progress-bar" role="progressbar" style="width: 20%" aria-valuenow="20"
                                 aria-valuemin="0" aria-valuemax="100"></div>
                         </div>
-                        <p>20% funded</p>
+                        <p>{{proyecto.percentage}}% funded</p>
                 </div>
                 <!--Fin desc-->
 
@@ -54,16 +55,16 @@
                                 <p class="mt-0 mb-0">Contribuidos</p>
                             </div>
                             <div class="col text-center">
-                                <h5 class="mt-0 mb-0">{{proyecto.patrocinadores}}</h5>
+                                <h5 class="mt-0 mb-0">{{proyecto.sponsors.length}}</h5>
                                 <p class="mt-0 mb-0">Dashers</p>
                             </div>
                             <div class="col text-center">
-                                <h5 class="mt-0 mb-0">{{proyecto.days_left}}</h5>
-                                <p class="mt-0 mb-0">Días restantes</p>
+                                <p class="mt-0 mb-0">Acaba el</p>
+                                <h5 class="mt-0 mb-0">{{proyecto.end_date}}</h5>
                             </div>
                             <div class="col text-center">
                                 <p class="mt-0 mb-0">Meta</p>
-                                <h5 class="mt-0 mb-0">${{proyecto.meta}}</h5>
+                                <h5 class="mt-0 mb-0">${{proyecto.monetary_goal}}</h5>
                             </div>
                         </div>
                     </div>
@@ -74,12 +75,12 @@
     </div>
     <!--Fin #1 card-->
 
-    <div class="card text-white bg-secondary my-5 py-4 text-center">
+    <!--<div class="card text-white bg-secondary my-5 py-4 text-center">
         <div class="card-body">
             <p class="text-white m-0">This call to action card is a great place to showcase some important information
                 or display a clever tagline!</p>
         </div>
-    </div>
+    </div>-->
 
 </div>
 
@@ -94,7 +95,7 @@
             </div>
             <div class="text-right col-4">
                 <!--text-right para mandar a la derecha-->
-                <a href="#" class="btn btn-secondary">Ver más</a>
+                <a routerLink="/category/Arte" class="btn btn-secondary">Ver más</a>
             </div>
         </div>
         <!--Fin titulo y ver más-->
@@ -109,18 +110,18 @@
                 <div class="col-md-4 col-lg-3 mb-5 my-2">
                     <div class="card h-100" style="width: 17rem;">
                         <!--style="width: 18rem;" para que quepa todo-->
-                        <img class="card-img-top" src="{{proyecto.image_url}}" alt="Card image cap">
+                        <img class="card-img-top" src="{{proyecto.image.imageURL}}" alt="Card image cap">
                         <div class="card-body">
-                            <h6 class="card-title"><a routerLink="/project/{{proyecto.id}}">{{proyecto.titulo}}</a></h6>
-                            <p class="text-muted">Por <strong><a routerLink="/project/{{proyecto.id}}"
+                            <h6 class="card-title"><a routerLink="/project/{{proyecto._id}}">{{proyecto.title}}</a></h6>
+                            <p class="text-muted">Por <strong><a routerLink="/project/{{proyecto._id}}"
                                         class="text-muted">{{proyecto.autor}}</a></strong>
                             </p>
                             <p class="card-text">{{proyecto.short_desc}}</p>
                             <div class="progress">
-                                <div class="progress-bar" role="progressbar" style="width: 76%" aria-valuenow="76"
+                                <div class="progress-bar" role="progressbar" style="width: 76%" aria-valuenow="40"
                                     aria-valuemin="0" aria-valuemax="100"></div>
                             </div>
-                            <p class="mb-1">76% patrocinado</p>
+                            <p class="mb-1">{{proyecto.percentage}}% patrocinado</p>
                         </div>
                         <div class="card-footer text-muted">
                             <div class="row">
@@ -129,16 +130,16 @@
                                 <div class="col-12">
                                     <div class="row">
                                         <div class="col-4 text-center">
-                                            <h6 class="mt-0 mb-0"><strong>{{proyecto.patrocinadores}}</strong></h6>
+                                            <h6 class="mt-0 mb-0"><strong>{{proyecto.sponsors.length}}</strong></h6>
                                             <p class="mt-0 mb-0">Dashers</p>
                                         </div>
                                         <div class="col-4 text-center">
                                             <p class="mt-0 mb-0">Meta</p>
-                                            <h6 class="mt-0 mb-0"><strong>${{proyecto.meta}}</strong></h6>
+                                            <h6 class="mt-0 mb-0"><strong>${{proyecto.monetary_goal}}</strong></h6>
                                         </div>
                                         <div class="col-4 text-center">
-                                            <h6 class="mt-0 mb-0"><strong>{{proyecto.days_left}}</strong></h6>
-                                            <p class="mt-0 mb-0">Días&nbsp;más</p>
+                                            <p class="mt-0 mb-0">Acaba&nbsp;el</p>
+                                            <h6 class="mt-0 mb-0"><strong>{{proyecto.end_date | date: 'EEEE, MMM d'}}</strong></h6>
                                         </div>
                                     </div>
                                 </div>
@@ -164,7 +165,7 @@
             </div>
             <div class="text-right col-4">
                 <!--text-right para mandar a la derecha-->
-                <a href="#" class="btn btn-secondary">Ver más</a>
+                <a routerLink="/category/Arte" class="btn btn-secondary">Ver más</a>
             </div>
         </div>
         <!--Fin titulo y ver más-->
@@ -178,10 +179,10 @@
                 <div class="col-md-4 col-lg-3 mb-5 my-2">
                     <div class="card h-100" style="width: 17rem;">
                         <!--style="width: 18rem;" para que quepa todo-->
-                        <img class="card-img-top" src="{{proyecto.image_url}}" alt="Card image cap">
+                        <img class="card-img-top" src="{{proyecto.image.imageURL}}" alt="Card image cap">
                         <div class="card-body">
-                            <h6 class="card-title"><a routerLink="/project/{{proyecto.id}}">{{proyecto.titulo}}</a></h6>
-                            <p class="text-muted">Por <strong><a routerLink="/project/{{proyecto.id}}"
+                            <h6 class="card-title"><a routerLink="/project/{{proyecto._id}}">{{proyecto.title}}</a></h6>
+                            <p class="text-muted">Por <strong><a routerLink="/project/{{proyecto._id}}"
                                         class="text-muted">{{proyecto.autor}}</a></strong>
                             </p>
                             <p class="card-text">{{proyecto.short_desc}}</p>
@@ -189,7 +190,7 @@
                                 <div class="progress-bar" role="progressbar" style="width: 76%" aria-valuenow="76"
                                     aria-valuemin="0" aria-valuemax="100"></div>
                             </div>
-                            <p class="mb-1">76% patrocinado</p>
+                            <p class="mb-1">{{proyecto.percentage}}% patrocinado</p>
                         </div>
                         <div class="card-footer text-muted">
                             <div class="row">
@@ -198,16 +199,16 @@
                                 <div class="col-12">
                                     <div class="row">
                                         <div class="col-4 text-center">
-                                            <h6 class="mt-0 mb-0"><strong>{{proyecto.patrocinadores}}</strong></h6>
+                                            <h6 class="mt-0 mb-0"><strong>{{proyecto.sponsors.length}}</strong></h6>
                                             <p class="mt-0 mb-0">Dashers</p>
                                         </div>
                                         <div class="col-4 text-center">
                                             <p class="mt-0 mb-0">Meta</p>
-                                            <h6 class="mt-0 mb-0"><strong>${{proyecto.meta}}</strong></h6>
+                                            <h6 class="mt-0 mb-0"><strong>${{proyecto.monetary_goal}}</strong></h6>
                                         </div>
                                         <div class="col-4 text-center">
-                                            <h6 class="mt-0 mb-0"><strong>{{proyecto.days_left}}</strong></h6>
-                                            <p class="mt-0 mb-0">Días&nbsp;más</p>
+                                            <h6 class="mt-0 mb-0"><strong>{{proyecto.end_date}}</strong></h6>
+                                            <p class="mt-0 mb-0">Acaba&nbsp;el</p>
                                         </div>
                                     </div>
                                 </div>

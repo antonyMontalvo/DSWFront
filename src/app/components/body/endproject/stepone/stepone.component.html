@@ -16,7 +16,8 @@
             <div style="border: 1px dashed #000; background: #fff; width: 100%; display: block; padding: 20px;"
                 class="text-center">
                 <p class="text-center">
-                    <label for="file" class="file-config"><strong>Escoge una imagen desde tu computadora.</strong></label>
+                    <label for="file" class="file-config"><strong>Escoge una imagen desde tu
+                            computadora.</strong></label>
                     <input type="file" id="file" value="Escoge una imagen desde tu computadora." multiple hidden>
                 </p>
                 <p>Esta es la imagen principal relacionada con tu proyecto. ¡Elige la más genial!</p>
@@ -32,33 +33,33 @@
         <!--Titulo-->
         <div class="form-group light-blue">
             <label for="projectTitle">Título del proyecto</label>
-            <input type="text" #projectTitle="ngModel" name="projectTitle" 
-            class="form-control form-control-lg" placeholder="Titulo" pattern="[a-zA-Z0-9\s]+" ngModel>
+            <input type="text" #projectTitle="ngModel" name="projectTitle" class="form-control form-control-lg"
+                placeholder="Titulo" pattern="[a-zA-Z0-9\s]+" ngModel>
             <p class="form-text text-muted">
                 Escribe un título claro y conciso que ayude a las personas a comprender rápidamente la esencia de tu
                 proyecto.
             </p>
         </div>
-        
+
         <div class="alert alert-danger" role="alert" *ngIf="projectTitle.touched && !projectTitle.valid">
             <div *ngIf="!projectTitle.valid">No se permiten caracteres especiales como /, -, $, !, etc.</div>
         </div>
 
-        
+
         <!--Fin titulo-->
 
         <!--Descripción corta-->
         <div class="form-group light-blue">
             <label for="projectSdesc">Descripción corta</label>
-            <textarea #projectSdesc="ngModel" name="projectSdesc" class="form-control form-control-lg" 
-                rows="3" pattern="[a-zA-Z0-9\s]+" ngModel></textarea>
+            <textarea #projectSdesc="ngModel" name="projectSdesc" class="form-control form-control-lg" rows="3"
+                pattern="[a-zA-Z0-9\s]+" ngModel></textarea>
             <p id="projectSdesc" class="form-text text-muted">
                 Ofrece una pequeña descripción de lo que estás haciendo.
             </p>
         </div>
 
         <div class="alert alert-danger" role="alert" *ngIf="projectSdesc.touched && !projectSdesc.valid">
-                <div *ngIf="!projectSdesc.valid">No se permiten caracteres especiales como /, -, $, !, etc.</div>
+            <div *ngIf="!projectSdesc.valid">No se permiten caracteres especiales como /, -, $, !, etc.</div>
         </div>
         <!--Fin descripcion corta-->
 
@@ -69,35 +70,35 @@
                 <div class="col-6">
                     <select name="category" id="categorySelectBox" class="form-control custom-select" ngModel>
 
-                        <option value="1">Arte</option>
+                        <option value="Arte">Arte</option>
 
-                        <option value="1">Comics</option>
+                        <option value="Comics">Comics</option>
 
-                        <option value="1">Hazlo tu mismo</option>
+                        <option value="Solo">Hazlo tu mismo</option>
 
-                        <option value="1">Baile</option>
+                        <option value="Baile">Baile</option>
 
-                        <option value="1">Diseño</option>
+                        <option value="Diseño">Diseño</option>
 
-                        <option value="1">Moda</option>
+                        <option value="Moda">Moda</option>
 
-                        <option value="1">Peliculas &amp; Video</option>
+                        <option value="Peliculas">Peliculas &amp; Video</option>
 
-                        <option value="1">Comida</option>
+                        <option value="Comida">Comida</option>
 
-                        <option value="1">Juegos</option>
+                        <option value="Juegos">Juegos</option>
 
-                        <option value="1">Periodismo</option>
+                        <option value="Periodismo">Periodismo</option>
 
-                        <option value="1">Musica</option>
+                        <option value="Musica">Musica</option>
 
-                        <option value="1">Fotografía</option>
+                        <option value="Fotografia">Fotografía</option>
 
-                        <option value="1">Publicaciones</option>
+                        <option value="Publicaciones">Publicaciones</option>
 
-                        <option value="1">Tecnología</option>
+                        <option value="Tecnologia">Tecnología</option>
 
-                        <option value="1">Teatro</option>
+                        <option value="Teatro">Teatro</option>
 
                     </select>
                 </div>
@@ -125,8 +126,8 @@
         <div class="form-group light-blue">
             <label for="projectDuration">Duración de la campaña</label>
             <div class="input-group">
-                <input type="text" #projectDuration="ngModel" name="projectDuration" class="form-control form-control-lg"
-                    placeholder="" pattern="[0-9]+" ngModel>
+                <input type="text" #projectDuration="ngModel" name="projectDuration"
+                    class="form-control form-control-lg" placeholder="" pattern="[0-9]+" ngModel>
                 <span class="input-group-addon">días</span>
             </div>
             <p id="projectDuration" class="form-text text-muted">
@@ -144,8 +145,8 @@
         <div class="form-group light-blue">
             <label for="projectGoal">Meta</label>
             <div class="input-group  col-4 pl-0">
-                <input type="text" #projectGoal="ngModel" name="projectGoal" class="form-control form-control-lg" placeholder=""
-                    value="0" pattern="[0-9]+" ngModel>
+                <input type="text" #projectGoal="ngModel" name="projectGoal" class="form-control form-control-lg"
+                    placeholder="" value="0" pattern="[0-9]+" ngModel>
                 <span class="input-group-addon" id="projectGoal">$</span>
             </div>
             <p id="projectGoal" class="form-text text-muted">

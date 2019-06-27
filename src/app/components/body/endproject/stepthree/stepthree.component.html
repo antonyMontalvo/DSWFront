@@ -8,38 +8,61 @@
     <form>
         <div class="form-group light-blue">
             <div class="row">
-                <div class="col-md-3"><strong>Recompensa #1</strong><br>
+                <div class="col-md-3"><strong>Recompensa #</strong><br>
                 </div>
                 <div class="col-md-9">
 
+                    <!--Titulo-->
                     <div class="form-group row">
-                        <label for="example-text-input" class="col-3 col-form-label">Titulo</label>
+                        <label for="rewardTitle" class="col-3 col-form-label">Titulo</label>
                         <div class="col-9">
-                            <input class="form-control" type="text" value="" placeholder="Ejm: Edición limitada firmada"
-                                id="example-text-input">
+                            <input type="text" #rewardTitle="ngModel" name="title" class="form-control"
+                                placeholder="Ejm: Edición limitada firmada" pattern="[a-zA-Z0-9\s]+" ngModel>
                         </div>
                     </div>
+
+                    <div class="alert alert-danger" role="alert" *ngIf="rewardTitle.touched && !rewardTitle.valid">
+                        <div *ngIf="!rewardTitle.valid">No se permiten caracteres especiales como /, -, $, !, etc.</div>
+                    </div>
+                    <!--Fin titulo-->
+
+                    <!--Contribucion-->
                     <div class="form-group row">
-                        <label for="example-search-input" class="col-3 col-form-label">Monto de contribución</label>
+                        <label for="min_amount" class="col-3 col-form-label">Monto de contribución</label>
                         <div class="col-9">
-                            <input class="form-control" type="text" value="1" id="example-search-input">
+                            <input type="text" #min_amount="ngModel" name="min_amount" class="form-control"
+                                pattern="[0-9]+" ngModel>
                         </div>
                     </div>
-                    <div class="form-group row">
-                        <label for="example-email-input" class="col-3 col-form-label">Descripción</label>
-                        <div class="col-9">
-                            <textarea class="form-control" rows="6" type="text" value=""
-                                id="example-email-input"></textarea>
+
+                    <div class="alert alert-danger" role="alert" *ngIf="min_amount.touched && !min_amount.valid">
+                        <div *ngIf="!min_amount.valid">Sólo se permite el ingreso de números, no letras ni espacios.
                         </div>
                     </div>
+                    <!--Fin contribucion-->
+
+                    <!--Descripción-->
                     <div class="form-group row">
+                        <label for="longDesc" class="col-3 col-form-label">Descripción</label>
+                        <div class="col-9">
+                            <textarea type="text" #longDesc="ngModel" name="longDesc" class="form-control" rows="6"
+                                pattern="[a-zA-Z0-9\s]+" ngModel></textarea>
+                        </div>
+                    </div>
+
+                    <div class="alert alert-danger" role="alert" *ngIf="longDesc.touched && !longDesc.valid">
+                        <div *ngIf="!longDesc.valid">No se permiten caracteres especiales como /, -, $, !, etc.</div>
+                    </div>
+                    <!--Fin descripción-->
+
+                    <!--<div class="form-group row">
                         <label for="example-url-input" class="col-3 col-form-label">Entrega&nbsp;aproximada</label>
                         <div class="col-9">
                             <input class="form-control" type="text" placeholder="YYYY/MM/DD" value=""
                                 id="example-url-input">
                         </div>
                     </div>
-                   
+
                     <div class="form-group row">
                         <label for="example-tel-input" class="col-3 col-form-label">Cantidad de la recompensa</label>
                         <div class="col-9">
@@ -49,7 +72,7 @@
                                 <option value="3">100+</option>
                             </select>
                         </div>
-                    </div>
+                    </div>-->
 
                 </div>
             </div>

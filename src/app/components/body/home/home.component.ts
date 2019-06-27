@@ -12,14 +12,14 @@ export class HomeComponent {
    proyectos: any = [];
 
    constructor(private projectServices: ProjectServices, private homeProjectService: HomeprojectsServices){
-        this.proyectos = this.projectServices.getProjects();
+        //this.proyectos = this.projectServices.getProjects();
         
-        /*this.homeProjectService.getAllProjectsNoCategory().subscribe(
+        this.homeProjectService.getAllProjectsNoCategory().subscribe(
             data => {
                 this.proyectos = data.message;
                 console.log(this.proyectos); // Se guardaron todos los proyectos en user_projects.
             }
-        )*/
+        )
    }
 
 

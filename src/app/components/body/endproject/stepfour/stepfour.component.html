@@ -38,11 +38,17 @@
                         patrocinadores y coordinar la entrega de las recompensas.</p>
                 </div>
 
+                <!--Email-->
                 <div class="col-6">
-
-                    <input type="email" class="form-control form-control-lg" id="exampleInputEmail1"
-                        aria-describedby="emailHelp" placeholder="Ingresa un email">
+                    <input type="email" class="form-control form-control-lg" #collaboratorEmail="ngModel"
+                       placeholder="Ingresa un email" name="collaboratorEmail" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" 
+                       ngModel>
                 </div>
+                <div class="alert alert-danger" role="alert" *ngIf="collaboratorEmail.touched && !collaboratorEmail.valid">
+                        <div *ngIf="!collaboratorEmail.valid">Ingresa un email correcto.</div>
+                </div>
+                <!--Fin email-->
+                
                 <div class="col-6">
 
                 </div>
@@ -51,8 +57,7 @@
 
             <div class="row">
                 <div class="col-6">
-                    <input type="email" class="form-control form-control-lg" id="exampleInputEmail1"
-                        aria-describedby="emailHelp" placeholder="">
+                    
                 </div>
                 <div class="col-6">
                     <button type="button" class="btn btn-dark float-sm-right">Añadir colaborador</button>

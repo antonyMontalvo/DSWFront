@@ -18,7 +18,7 @@ const routes: Routes = [
     {path: 'profile/:token', component: ProfileComponent},
     {path: 'config', component: ProfileconComponent},
     {path: 'about', component: AboutComponent},
-    {path: 'category', component: CategoryComponent},
+    {path: 'category/:cat', component: CategoryComponent},
     {path: 'start_project', component: StartprojectComponent},
     {path: 'admin', component: AdminComponent}
 ];
